@@ -74,6 +74,28 @@ header {
 }
 
 
+/* 메인 배너의 상세보기 버튼과 텍스트를 왼쪽 정렬 */
+.carousel-caption {
+    text-align: left;
+}
+
+/* 메인 배너의 버튼을 왼쪽 정렬하고 반투명 화이트 색상 및 둥근 모양으로 변경 */
+.carousel-caption .btn {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.7); /* 반투명 화이트 색상 */
+    color: rgba(0, 0, 0, 0.7); /* 글씨를 반투명하게 설정 */
+    border: none; /* 버튼 테두리 제거 */
+    border-radius: 20px; /* 둥근 모양을 위해 반지름 설정 */
+    padding: 5px 15px; /* 버튼의 높이를 줄이기 위해 패딩 조정 */
+    font-size: 1rem; /* 글씨 크기는 그대로 유지 */
+}
+
+.carousel-caption .btn:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* 마우스 오버 시 약간 덜 투명하게 변경 */
+    color: rgba(0, 0, 0, 0.9); /* 마우스 오버 시 글씨를 약간 덜 투명하게 변경 */
+}
+
+
 .banner {
     position: relative;
     overflow: hidden;
@@ -215,13 +237,14 @@ movie-item p {
 
 .movie-item .movie-buttons {
     position: absolute;
-    bottom: 10px;
+    top: 50%; /* 상단에서 50% 위치 */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%); /* X, Y 축 기준으로 중앙 정렬 */
     display: none;
     flex-direction: column;
     gap: 5px;
 }
+
 
 .movie-item:hover .movie-buttons {
     display: flex;
@@ -368,6 +391,7 @@ footer a:hover {
 .top-banner {
     background-size: cover;
     height: 80px;
+    margin: 0;
 }
 
 /* 탭 스타일 설정 */
