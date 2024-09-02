@@ -2,19 +2,18 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인 테스트 페이지 </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>테스트 페이지</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/make.css" rel="stylesheet">
 
-    <!-- 폰트 설정  -->
-    <link th:href="@{https://fonts.gstatic.com}" rel="preconnect"/>
+    <!-- 폰트 설정 -->
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}"/>
     <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i"
             rel="stylesheet"
     />
-
 </head>
 <body>
 
@@ -25,50 +24,52 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">CGV</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav mx-auto">
+                <!-- 드롭다운 메뉴 추가 -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="moviesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="moviesDropdown" role="button">
                         영화
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="moviesDropdown">
+                    <ul aria-labelledby="moviesDropdown" class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">현재 상영작</a></li>
                         <li><a class="dropdown-item" href="#">개봉 예정작</a></li>
                         <li><a class="dropdown-item" href="#">특별 상영작</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="theatersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="theatersDropdown" role="button">
                         극장
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="theatersDropdown">
-                        <li><a class="dropdown-item" href="#">주변 극장</a></li>
+                    <ul aria-labelledby="theatersDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">전체 극장</a></li>
                         <li><a class="dropdown-item" href="#">특별관</a></li>
                         <li><a class="dropdown-item" href="#">상영 시간표</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="reservationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="reservationDropdown" role="button">
                         예매
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="reservationDropdown">
-                        <li><a class="dropdown-item" href="#">영화 예매</a></li>
-                        <li><a class="dropdown-item" href="#">기타 예매</a></li>
-                    </ul>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="eventDropdown" role="button">
                         이벤트
                     </a>
-                    <ul class="dropdown-menu" aria-labelledby="eventsDropdown">
-                        <li><a class="dropdown-item" href="#">진행중 이벤트</a></li>
-                        <li><a class="dropdown-item" href="#">종료된 이벤트</a></li>
-                        <li><a class="dropdown-item" href="#">이벤트 당첨자</a></li>
+                    <ul aria-labelledby="eventDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 진행 이벤트</a></li>
+                        <li><a class="dropdown-item" href="#">이벤트 응모/당첨자</a></li>
                     </ul>
                 </li>
+                <!-- 더 많은 메뉴 아이템 추가 -->
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="search.html">검색</a></li>
@@ -80,81 +81,204 @@
 </nav>
 
 <!-- 메인 배너 -->
-<div id="mainBanner" class="carousel slide" data-bs-ride="carousel">
+<div class="carousel slide" data-bs-ride="carousel" id="mainBanner">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="images/banner1.jpg" class="d-block w-100" alt="트랜스포머 ONE">
+            <img alt="트랜스포머 ONE" class="d-block w-100" src="images/banner1.jpg">
             <div class="carousel-caption d-none d-md-block">
                 <h5>트랜스포머 ONE</h5>
                 <p>역대급 트랜스포머 극장에서 확인하라!</p>
-                <a href="#" class="btn btn-primary">상세보기</a>
+                <a class="btn btn-primary" href="#">상세보기</a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- 무비 차트 -->
+<!-- 무비 차트 섹션 -->
 <main class="container movie-chart">
-    <h2>무비 차트</h2>
-    <div class="grid">
-        <div class="movie-item">
-            <img src="movie_poster1.jpg" alt="베테랑 2">
-            <h3>베테랑 2</h3>
-            <p>예매율: 29.5%</p>
+    <h2 class="d-flex justify-content-center align-items-center">
+        <span class="tab-title active" id="tab-movie-chart" onclick="showChart('movie')">무비차트</span> |
+        <span class="tab-title" id="tab-upcoming" onclick="showChart('upcoming')">상영예정작</span>
+    </h2>
+
+    <div class="movie-chart-wrapper position-relative">
+        <!-- 좌우 화살표 버튼 -->
+        <button class="carousel-control-prev movie-chart-control movie-chart-control-prev" onclick="scrollChart('prev')" type="button">
+            <span aria-hidden="true" class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">이전</span>
+        </button>
+        <button class="carousel-control-next movie-chart-control movie-chart-control-next" onclick="scrollChart('next')" type="button">
+            <span aria-hidden="true" class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">다음</span>
+        </button>
+
+        <div class="grid movie-chart-content" id="movie-chart-content">
+            <!-- Movie Item 1 -->
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">1</div>
+                <img alt="her : 그녀" src="/img/her.jpg">
+                <div class="movie-age-badge">15세</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <div class="movie-info">
+                    <h3>her : 그녀</h3>
+                    <p>예매율: 31.5%</p>
+                </div>
+            </div>
+
+
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">1</div>
+                <img alt="라라랜드" src="/img/라라랜드.jpg">
+                <div class="movie-age-badge">15세</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <!-- 텍스트 요소를 이미지 아래로 이동 -->
+                <div class="movie-info">
+                    <h3>라라랜드</h3>
+                    <p>예매율: 22.6%</p>
+                </div>
+            </div>
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">1</div>
+                <img alt="인사이드아웃 2" src="/img/인사이드아웃2.jpg">
+                <div class="movie-age-badge">ALL</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <!-- 텍스트 요소를 이미지 아래로 이동 -->
+                <div class="movie-info">
+                    <h3>인사이드아웃 2</h3>
+                    <p>예매율: 18.2%</p>
+                </div>
+            </div>
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">1</div>
+                <img alt="웡카" src="/img/웡카.png">
+                <div class="movie-age-badge">12세</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <!-- 텍스트 요소를 이미지 아래로 이동 -->
+                <div class="movie-info">
+                    <h3>웡카</h3>
+                    <p>예매율: 15.5%</p>
+                </div>
+            </div>
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">1</div>
+                <img alt="괴물" src="/img/괴물.jpg">
+                <div class="movie-age-badge">15세</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <!-- 텍스트 요소를 이미지 아래로 이동 -->
+                <div class="movie-info">
+                    <h3>괴물</h3>
+                    <p>예매율: 12.7%</p>
+                </div>
+            </div>
+
         </div>
-        <div class="movie-item">
-            <img src="movie_poster2.jpg" alt="임영웅 | 아임 히어로 더 파이널">
-            <h3>임영웅 | 아임 히어로 더 파이널</h3>
-            <p>예매율: 21.7%</p>
-        </div>
-        <div class="movie-item">
-            <img src="movie_poster3.jpg" alt="안녕, 하부지">
-            <h3>안녕, 하부지</h3>
-            <p>예매율: 8.4%</p>
-        </div>
-        <div class="movie-item">
-            <img src="movie_poster4.jpg" alt="비틀쥬스 비틀쥬스">
-            <h3>비틀쥬스 비틀쥬스</h3>
-            <p>예매율: 8.2%</p>
-        </div>
-        <div class="movie-item">
-            <img src="movie_poster5.jpg" alt="레드불 T1 다큐멘터리">
-            <h3>레드불 T1 다큐멘터리</h3>
-            <p>예매율: 4.6%</p>
+
+        <!-- 상영 예정작 섹션 -->
+        <div class="grid movie-chart-content d-none" id="upcoming-content">
+            <!-- Upcoming Movie Item 1 -->
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">1</div>
+                <img alt="영화1" src="upcoming_movie1.jpg">
+                <div class="movie-age-badge">15세</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <h3>영화1</h3>
+                <p>예매율: 20.1%</p>
+            </div>
+            <!-- Repeat for other upcoming movies -->
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">2</div>
+                <img alt="영화2" src="upcoming_movie2.jpg">
+                <div class="movie-age-badge">12세</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <h3>영화2</h3>
+                <p>예매율: 19.7%</p>
+            </div>
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">3</div>
+                <img alt="영화3" src="upcoming_movie3.jpg">
+                <div class="movie-age-badge">ALL</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <h3>영화3</h3>
+                <p>예매율: 18.3%</p>
+            </div>
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">4</div>
+                <img alt="영화4" src="upcoming_movie4.jpg">
+                <div class="movie-age-badge">19세</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <h3>영화4</h3>
+                <p>예매율: 15.2%</p>
+            </div>
+            <div class="movie-item" onmouseover="showButtons(this)" onmouseout="hideButtons(this)">
+                <div class="movie-rank">5</div>
+                <img alt="영화5" src="upcoming_movie5.jpg">
+                <div class="movie-age-badge">15세</div>
+                <div class="movie-buttons">
+                    <button class="btn btn-light">상세보기</button>
+                    <button class="btn btn-danger">예매하기</button>
+                </div>
+                <h3>영화5</h3>
+                <p>예매율: 13.1%</p>
+            </div>
         </div>
     </div>
 </main>
 
-<!-- 이벤트 -->
+<!-- 이벤트 섹션 -->
 <section class="event-section">
     <h2>이벤트</h2>
     <div class="grid">
-        <div class="movie-item">
-            <img src="event_image1.jpg" alt="VIP Easy Up 챌린지">
+        <div class="event-item">
+            <img alt="VIP Easy Up 챌린지" src="event_image1.jpg">
             <h3>VIP Easy Up 챌린지</h3>
             <p>2024.08.30 - 2024.09.05</p>
         </div>
-        <div class="movie-item">
-            <img src="event_image2.jpg" alt="가을만큼 풍성한 무비 추천템">
+        <div class="event-item">
+            <img alt="가을만큼 풍성한 무비 추천템" src="event_image2.jpg">
             <h3>가을만큼 풍성한 무비 추천템</h3>
             <p>2024.08.30 - 2024.09.15</p>
         </div>
-        <div class="movie-item">
-            <img src="event_image3.jpg" alt="브레드 이발소 프리미어 상영회">
+        <div class="event-item">
+            <img alt="브레드 이발소 프리미어 상영회" src="event_image3.jpg">
             <h3>브레드 이발소 프리미어 상영회</h3>
             <p>2024.08.28 - 2024.09.08</p>
         </div>
     </div>
-</section>
 
+</section>
 
 <footer class="footer">
     <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
     <p>고객센터: 1544-1122</p>
 </footer>
-
-<script src="js/navbar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/main.js"></script>
 </body>
-
 </html>

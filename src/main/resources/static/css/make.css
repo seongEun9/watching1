@@ -1,32 +1,294 @@
-/* 전체 페이지의 기본 패딩 및 폰트 설정 */
+/* 전역 스타일 설정 */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
 }
 
-/* 메인 배너 크기 설정 */
+/* 헤더 스타일 설정 */
+header {
+    background-color: #ce1c6a;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* 내비게이션 스타일 설정 */
+nav.container-fluid {
+    background-color: #ce1c6a;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* 배너 스타일 설정 */
 #mainBanner {
     height: 400px;
 }
 
-/* 메인 배너 이미지 크기 및 커버 설정 */
 .carousel-item img {
     height: 400px;
     object-fit: cover;
 }
 
-/* 무비 차트에서 이미지 비율을 3:4로 설정 */
+.banner {
+    position: relative;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.banner-text h2 {
+    font-size: 2.5rem;
+}
+
+/* 무비 차트 스타일 설정 */
+.movie-chart {
+    padding: 30px 0;
+    background-color: #f8f9fa;
+    position: relative;
+}
+
+.movie-chart h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.movie-chart-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.movie-chart-content {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.grid.movie-chart-content .movie-item {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.movie-item {
+    position: relative;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    height: 340px; /* 전체 높이 조정 */
+    gap: 10px; /* 요소들 간의 거리 조절 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .movie-item img {
     width: 100%;
-    height: auto; /* 높이를 이미지 비율에 맞게 조정 */
+    height: 250px; /* 이미지 높이 고정 */
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.movie-item:hover {
+    transform: scale(1.05);
+}
+
+.movie-item h3 {
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+    text-align: center;
+}
+
+movie-item p {
+    color: #777;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.movie-item .movie-rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.movie-item .movie-age-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.movie-item:hover img {
+    opacity: 0.7;
+}
+
+.movie-item .movie-buttons {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.movie-item:hover .movie-buttons {
+    display: flex;
+}
+
+.movie-info {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-info h3 {
+    font-size: 1rem; /* 제목 크기 조정 */
+    margin: 0;
+    white-space: nowrap; /* 텍스트가 길면 줄바꿈 없이 생략 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-info p {
+    font-size: 0.85rem; /* 예매율 크기 조정 */
+    color: #777;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 캐러셀 컨트롤 스타일 설정 */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+/* 무비 차트 컨트롤 스타일 설정 */
+.movie-chart-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    width: 5%;
+    height: 100%;
+}
+
+.movie-chart-control.movie-chart-control-prev {
+    left: 0;
+}
+
+.movie-chart-control.movie-chart-control-next {
+    right: 0;
+}
+
+/* 이벤트 섹션 스타일 */
+.event-section {
+    padding: 100px 0; /* 무비 차트와 이벤트 사이 거리 추가 */
+    background-color: #fff;
+}
+
+.event-section .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    height: 250px;
+}
+
+.event-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 이벤트 아이템 스타일 */
+.event-item {
+    position: relative;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.event-item img {
+    width: 100%;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
 }
 
-/* 카드 제목 중앙 정렬 */
-.card-body {
-    text-align: center;
+.event-item h3 {
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+}
+
+.event-item p {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 0;
 }
 
 /* 푸터 스타일 설정 */
@@ -45,144 +307,8 @@ footer a:hover {
     text-decoration: underline;
 }
 
-/* 헤더 스타일 설정 */
-header {
-    background-color: #FF5722;
-    color: white;
-    padding: 15px 0;
-    text-align: center;
-}
-
-/* 내비게이션 바 스타일 설정 */
-nav.container-fluid {
-    background-color: #FF5722;
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* 내비게이션 메뉴 스타일 */
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-}
-
-/* 내비게이션 메뉴 항목 스타일 */
-nav ul li {
-    margin-right: 20px;
-}
-
-/* 내비게이션 링크 스타일 */
-nav ul li a {
-    color: white;
-    text-decoration: none;
-}
-
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* 배너 스타일 설정 */
-.banner {
-    position: relative;
-    overflow: hidden;
-}
-
-/* 배너 이미지 스타일 */
-.banner img {
-    width: 100%;
-    height: auto;
-}
-
-/* 배너 텍스트 스타일 */
-.banner-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.banner-text h2 {
-    font-size: 2.5rem;
-}
-
-/* 무비 차트 섹션 스타일 */
-.movie-chart {
-    padding: 30px 0;
-    background-color: #f8f9fa;
-}
-
-.movie-chart h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* 무비 차트 그리드 스타일 */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-/* 무비 차트 아이템 스타일 */
-.movie-item {
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s;
-    height: 300px; /* 높이  지정 */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.movie-item:hover {
-    transform: scale(1.05);
-}
-
-.movie-item h3 {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-}
-
-.movie-item p {
-    color: #777;
-    font-size: 0.9rem;
-}
-
-/* 이벤트 섹션 스타일 */
-.event-section {
-    padding: 100px 0; /* 무비 차트와 이벤트 사이 거리 추가 */
-    background-color: #fff;
-}
-
-.event-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-/* 이벤트 섹션 아이템 스타일 */
-.event-section .movie-item img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-/* 푸터 스타일 설정 */
 .footer {
-    background-color: #FF5722;
+    background-color: #ce1c6a;
     color: white;
     margin-top: 100px;
     padding: 20px 0;
@@ -198,8 +324,19 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/* 최상단 빈 공간에 사진을 배경으로 설정, 높이 80px 고정 */
+/* 상단 배너 스타일 설정 */
 .top-banner {
     background-size: cover;
     height: 80px;
+}
+
+/* 탭 스타일 설정 */
+.tab-title {
+    cursor: pointer;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.tab-title.active {
+    color: #ce1c6a;
 }
