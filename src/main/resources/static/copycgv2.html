@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 예매 사이트</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #FF5722;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        nav.container-fluid {
+            background-color: #FF5722;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        .banner {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+
+        .banner-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .banner-text h2 {
+            font-size: 2.5rem;
+        }
+
+        .movie-chart {
+            padding: 30px 0;
+            background-color: #f8f9fa;
+        }
+
+        .movie-chart h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-item {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .movie-item:hover {
+            transform: scale(1.05);
+        }
+
+        .movie-item img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .movie-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .movie-item p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+
+        .event-section {
+            padding: 30px 0;
+            background-color: #fff;
+        }
+
+        .event-section h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .footer {
+            background-color: #FF5722;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <h1>영화 예매 사이트</h1>
+</header>
+
+<nav class="container-fluid">
+    <ul>
+        <li><strong><a href="#">CGV</a></strong></li>
+    </ul>
+    <ul>
+        <li><a href="#">영화</a></li>
+        <li><a href="#">극장</a></li>
+        <li><a href="#">예매</a></li>
+        <li><a href="#">스토어</a></li>
+        <li><a href="#">이벤트</a></li>
+        <li><a href="#">혜택</a></li>
+        <li><a href="#" role="button">로그인</a></li>
+    </ul>
+</nav>
+
+<section class="banner">
+    <img src="movie_banner.jpg" alt="트랜스포머 ONE">
+    <div class="banner-text">
+        <h2>트랜스포머 ONE</h2>
+        <p>역대급 트랜스포머 극장에서 확인하라!</p>
+        <button onclick="location.href='#'">상세보기</button>
+    </div>
+</section>
+
+<main class="container movie-chart">
+    <h2>무비 차트</h2>
+    <div class="grid">
+        <div class="movie-item">
+            <img src="movie_poster1.jpg" alt="베테랑 2">
+            <h3>베테랑 2</h3>
+            <p>예매율: 29.5%</p>
+        </div>
+        <div class="movie-item">
+            <img src="movie_poster2.jpg" alt="임영웅 | 아임 히어로 더 파이널">
+            <h3>임영웅 | 아임 히어로 더 파이널</h3>
+            <p>예매율: 21.7%</p>
+        </div>
+        <div class="movie-item">
+            <img src="movie_poster3.jpg" alt="안녕, 하부지">
+            <h3>안녕, 하부지</h3>
+            <p>예매율: 8.4%</p>
+        </div>
+        <div class="movie-item">
+            <img src="movie_poster4.jpg" alt="비틀쥬스 비틀쥬스">
+            <h3>비틀쥬스 비틀쥬스</h3>
+            <p>예매율: 8.2%</p>
+        </div>
+        <div class="movie-item">
+            <img src="movie_poster5.jpg" alt="레드불 T1 다큐멘터리">
+            <h3>레드불 T1 다큐멘터리</h3>
+            <p>예매율: 4.6%</p>
+        </div>
+    </div>
+</main>
+
+<section class="event-section">
+    <h2>이벤트</h2>
+    <div class="grid">
+        <div class="movie-item">
+            <img src="event_image1.jpg" alt="VIP Easy Up 챌린지">
+            <h3>VIP Easy Up 챌린지</h3>
+            <p>2024.08.30 - 2024.09.05</p>
+        </div>
+        <div class="movie-item">
+            <img src="event_image2.jpg" alt="가을만큼 풍성한 무비 추천템">
+            <h3>가을만큼 풍성한 무비 추천템</h3>
+            <p>2024.08.30 - 2024.09.15</p>
+        </div>
+        <div class="movie-item">
+            <img src="event_image3.jpg" alt="브레드 이발소 프리미어 상영회">
+            <h3>브레드 이발소 프리미어 상영회</h3>
+            <p>2024.08.28 - 2024.09.08</p>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
+    <p>고객센터: 1544-1122</p>
+</footer>
+</body>
+
+</html>
