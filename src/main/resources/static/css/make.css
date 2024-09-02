@@ -13,7 +13,7 @@ header {
 }
 
 /* 내비게이션 스타일 설정 */
-nav.container-fluid {
+.container-fluid {
     background-color: #ce1c6a;
     padding: 10px;
     display: flex;
@@ -21,35 +21,58 @@ nav.container-fluid {
     align-items: center;
 }
 
-nav ul {
+.navbar-nav {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: wrap; /* 메뉴 항목이 너무 많을 경우 줄바꿈 */
 }
 
-nav ul li {
-    margin-right: 20px;
+.navbar-brand {
+    color: white;
+    padding-left: 20px;
+    text-decoration: none;
+    font-weight: bold; /* 메뉴 항목을 굵게 */
 }
 
-nav ul li a {
+.nav-link {
     color: white;
     text-decoration: none;
+    font-weight: bold; /* 메뉴 항목을 굵게 */
+    margin-left: 30px;
 }
 
-nav ul li a:hover {
+.nav-link:hover {
     text-decoration: underline;
 }
 
+/* 드롭다운 메뉴 스타일 */
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu a {
+    color: #212529;
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu a:hover {
+    background-color: #e9ecef;
+}
 /* 배너 스타일 설정 */
 #mainBanner {
-    height: 400px;
+    height: 500px;
 }
 
 .carousel-item img {
-    height: 400px;
+    height: 500px;
     object-fit: cover;
 }
+
 
 .banner {
     position: relative;
@@ -75,11 +98,25 @@ nav ul li a:hover {
 
 .banner-text h2 {
     font-size: 2.5rem;
+ }
+
+.carousel-caption h1 {
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    text-align: left;
 }
+.carousel-caption h5 {
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    text-align: left;
+}
+
 
 /* 무비 차트 스타일 설정 */
 .movie-chart {
-    padding: 30px 0;
+    padding: 80px 0;
     background-color: #f8f9fa;
     position: relative;
 }
@@ -246,7 +283,7 @@ movie-item p {
 
 /* 이벤트 섹션 스타일 */
 .event-section {
-    padding: 100px 0; /* 무비 차트와 이벤트 사이 거리 추가 */
+    padding: 80px 0; /* 무비 차트와 이벤트 사이 거리 추가 */
     background-color: #fff;
 }
 
@@ -275,6 +312,7 @@ movie-item p {
 
 .event-item img {
     width: 100%;
+    height: 250px;
     object-fit: cover;
     border-radius: 8px;
     margin-bottom: 10px;
@@ -295,6 +333,8 @@ movie-item p {
 footer {
     background-color: #f8f9fa;
     padding: 20px 0;
+    height: 200px;
+
 }
 
 footer a {
