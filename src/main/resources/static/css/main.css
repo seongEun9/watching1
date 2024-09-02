@@ -373,7 +373,7 @@ footer a:hover {
 .footer {
     background-color: #ce1c6a;
     color: white;
-    margin-top: 100px;
+    margin-top: 50px;
     padding: 20px 0;
     text-align: center;
 }
@@ -403,4 +403,47 @@ footer a:hover {
 
 .tab-title.active {
     color: #ce1c6a;
+}
+
+/* 고객센터 및 공지사항 섹션 스타일 */
+.customer-service-section {
+    padding: 100px 0; /* 이벤트 사이 거리 추가 */
+    margin-top: 40px;
+}
+
+.notice-board h5,
+.customer-service h5 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.notice-board p,
+.customer-service p {
+    margin: 0 0 10px 0;
+}
+
+.notice-board .btn {
+    float: right;
+}
+
+.customer-service .btn {
+    flex-grow: 1;
+    margin-right: 5px;
+}
+
+.customer-service .btn:last-child {
+    margin-right: 0;
+}
+
+.customer-service {
+    text-align: left;
+}
+
+.notice-board a {
+    color: #000;
+    text-decoration: none;
+}
+
+.notice-board a:hover {
+    text-decoration: underline;
 }
