@@ -1,0 +1,449 @@
+/* 전역 스타일 설정 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* 헤더 스타일 설정 */
+header {
+    background-color: #ce1c6a;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+}
+
+/* 내비게이션 스타일 설정 */
+.container-fluid {
+    background-color: #ce1c6a;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap; /* 메뉴 항목이 너무 많을 경우 줄바꿈 */
+}
+
+.navbar-brand {
+    color: white;
+    padding-left: 20px;
+    text-decoration: none;
+    font-weight: bold; /* 메뉴 항목을 굵게 */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold; /* 메뉴 항목을 굵게 */
+    margin-left: 30px;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* 드롭다운 메뉴 스타일 */
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu a {
+    color: #212529;
+    padding: 0.5rem 1rem;
+}
+
+.dropdown-menu a:hover {
+    background-color: #e9ecef;
+}
+/* 배너 스타일 설정 */
+#mainBanner {
+    height: 500px;
+}
+
+.carousel-item img {
+    height: 500px;
+    object-fit: cover;
+}
+
+
+/* 메인 배너의 상세보기 버튼과 텍스트를 왼쪽 정렬 */
+.carousel-caption {
+    text-align: left;
+}
+
+/* 메인 배너의 버튼을 왼쪽 정렬하고 반투명 화이트 색상 및 둥근 모양으로 변경 */
+.carousel-caption .btn {
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0.7); /* 반투명 화이트 색상 */
+    color: rgba(0, 0, 0, 0.7); /* 글씨를 반투명하게 설정 */
+    border: none; /* 버튼 테두리 제거 */
+    border-radius: 20px; /* 둥근 모양을 위해 반지름 설정 */
+    padding: 5px 15px; /* 버튼의 높이를 줄이기 위해 패딩 조정 */
+    font-size: 1rem; /* 글씨 크기는 그대로 유지 */
+}
+
+.carousel-caption .btn:hover {
+    background-color: rgba(255, 255, 255, 0.9); /* 마우스 오버 시 약간 덜 투명하게 변경 */
+    color: rgba(0, 0, 0, 0.9); /* 마우스 오버 시 글씨를 약간 덜 투명하게 변경 */
+}
+
+
+.banner {
+    position: relative;
+    overflow: hidden;
+}
+
+.banner img {
+    width: 100%;
+    height: auto;
+}
+
+.banner-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.banner-text h2 {
+    font-size: 2.5rem;
+ }
+
+.carousel-caption h1 {
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    text-align: left;
+}
+.carousel-caption h5 {
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
+    text-align: left;
+}
+
+
+/* 무비 차트 스타일 설정 */
+.movie-chart {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+    position: relative;
+}
+
+.movie-chart h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.movie-chart-wrapper {
+    overflow: hidden;
+    position: relative;
+}
+
+.movie-chart-content {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.grid.movie-chart-content .movie-item {
+    flex: 0 0 auto;
+    width: 200px;
+    margin-right: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.movie-item {
+    position: relative;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+    height: 340px; /* 전체 높이 조정 */
+    gap: 10px; /* 요소들 간의 거리 조절 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.movie-item img {
+    width: 100%;
+    height: 250px; /* 이미지 높이 고정 */
+    object-fit: cover;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.movie-item:hover {
+    transform: scale(1.05);
+}
+
+.movie-item h3 {
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+    text-align: center;
+}
+
+movie-item p {
+    color: #777;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.movie-item .movie-rank {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.movie-item .movie-age-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+.movie-item:hover img {
+    opacity: 0.7;
+}
+
+.movie-item .movie-buttons {
+    position: absolute;
+    top: 50%; /* 상단에서 50% 위치 */
+    left: 50%;
+    transform: translate(-50%, -50%); /* X, Y 축 기준으로 중앙 정렬 */
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.movie-item:hover .movie-buttons {
+    display: flex;
+}
+
+.movie-info {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.movie-info h3 {
+    font-size: 1rem; /* 제목 크기 조정 */
+    margin: 0;
+    white-space: nowrap; /* 텍스트가 길면 줄바꿈 없이 생략 */
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.movie-info p {
+    font-size: 0.85rem; /* 예매율 크기 조정 */
+    color: #777;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 캐러셀 컨트롤 스타일 설정 */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 50px;
+    height: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+/* 무비 차트 컨트롤 스타일 설정 */
+.movie-chart-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    width: 5%;
+    height: 100%;
+}
+
+.movie-chart-control.movie-chart-control-prev {
+    left: 0;
+}
+
+.movie-chart-control.movie-chart-control-next {
+    right: 0;
+}
+
+/* 이벤트 섹션 스타일 */
+.event-section {
+    padding: 80px 0; /* 무비 차트와 이벤트 사이 거리 추가 */
+    background-color: #fff;
+}
+
+.event-section .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    height: 250px;
+}
+
+.event-section h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* 이벤트 아이템 스타일 */
+.event-item {
+    position: relative;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.event-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.event-item h3 {
+    font-size: 1.2rem;
+    margin: 10px 0 5px;
+}
+
+.event-item p {
+    color: #777;
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* 푸터 스타일 설정 */
+footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    height: 200px;
+
+}
+
+footer a {
+    text-decoration: none;
+    color: inherit;
+}
+
+footer a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}
+
+.footer {
+    background-color: #ce1c6a;
+    color: white;
+    margin-top: 50px;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline;
+}
+
+/* 상단 배너 스타일 설정 */
+.top-banner {
+    background-size: cover;
+    height: 80px;
+    margin: 0;
+}
+
+/* 탭 스타일 설정 */
+.tab-title {
+    cursor: pointer;
+    margin: 0 10px;
+    font-weight: bold;
+}
+
+.tab-title.active {
+    color: #ce1c6a;
+}
+
+/* 고객센터 및 공지사항 섹션 스타일 */
+.customer-service-section {
+    padding: 100px 0; /* 이벤트 사이 거리 추가 */
+    margin-top: 40px;
+}
+
+.notice-board h5,
+.customer-service h5 {
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.notice-board p,
+.customer-service p {
+    margin: 0 0 10px 0;
+}
+
+.notice-board .btn {
+    float: right;
+}
+
+.customer-service .btn {
+    flex-grow: 1;
+    margin-right: 5px;
+}
+
+.customer-service .btn:last-child {
+    margin-right: 0;
+}
+
+.customer-service {
+    text-align: left;
+}
+
+.notice-board a {
+    color: #000;
+    text-decoration: none;
+}
+
+.notice-board a:hover {
+    text-decoration: underline;
+}
