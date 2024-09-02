@@ -12,7 +12,7 @@
     <style>
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: #ffffff;
+            background-color: #fff;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -20,71 +20,104 @@
         }
 
         .container {
-            flex: 1;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
+            max-width: 500px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            margin-top: 30px;
         }
 
-        .signup-container {
-            max-width: 600px;
-            padding: 60px;
-            border: 1px solid #dee2e6;
-            border-radius: 8px;
-            background-color: #ffffff;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .signup-container h2 {
-            color: #dc3545;
-            margin-bottom: 30px;
-            text-align: center;
-            font-weight: 700;
-        }
-
-        .signup-container .form-group {
+        .form-group {
+            position: relative;
             margin-bottom: 20px;
         }
 
-        .signup-container .form-control {
-            height: 50px;
-            padding: 12px;
-            font-size: 16px;
+        .form-group label {
+            font-size: 14px;
+            color: #495057;
+            font-weight: 500;
         }
 
-        .signup-container .btn-signup {
-            background-color: #dc3545;
-            border-color: #dc3545;
-            color: white;
-            font-weight: 600;
-            padding: 12px 0;
-            font-size: 18px;
+        .form-control {
+            height: 45px;
+            padding: 10px 40px 10px 15px;
+            font-size: 14px;
+            border: 1px solid #ced4da;
+            border-radius: 5px;
+        }
+
+        .form-control:focus {
+            border-color: #80bdff;
+            outline: 0;
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+        }
+
+        .form-group .icon {
+            position: absolute;
+            top: 50%;
+            right: 15px;
+            transform: translateY(-50%);
+            color: #868e96;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .form-group .icon-left {
+            left: 15px;
+            right: auto;
+            color: #495057;
+        }
+
+        .btn-group-toggle {
             width: 100%;
         }
 
-        .signup-container .btn-signup:hover {
-            background-color: #c82333;
+        .btn-group-toggle .btn {
+            flex: 1;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 500;
+            color: #495057;
+            border-color: #ced4da;
+            padding: 10px;
+        }
+
+        .btn-group-toggle .btn.active {
+            background-color: #dc3545;
+            color: white;
             border-color: #bd2130;
         }
 
-        .signup-container .form-check-label {
-            font-size: 14px;
-        }
-
-        .signup-container .links {
+        .btn-signup {
+            background-color: #dc3545;
+            color: white;
+            font-weight: 600;
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            border: none;
+            border-radius: 5px;
             margin-top: 20px;
-            text-align: center;
         }
 
-        .signup-container .links a {
-            color: #dc3545;
-            text-decoration: none;
-            margin: 0 5px;
+        .btn-signup:hover {
+            background-color: #bd2130;
         }
 
-        .signup-container .links a:hover {
-            text-decoration: underline;
+        .btn-check-duplicate {
+            background-color: #dc3545;
+            color: white;
+            font-weight: 300;
+            padding: 5px;
+            font-size: 14px;
+            margin-left: 5px;
+            border-radius: 8px;
+            border: none;
+        }
+
+        .btn-check-duplicate:hover {
+            background-color: #bd2130;
         }
 
         .footer {
@@ -103,20 +136,6 @@
 
         .footer a:hover {
             text-decoration: underline;
-        }
-
-        .btn-check-duplicate {
-            background-color: #dc3545;
-            color: white;
-            font-weight: 600;
-            font-size: 14px;
-            margin-left: 10px;
-            height: 50px;
-        }
-
-        .btn-check-duplicate:hover {
-            background-color: #bd2130;
-            color: white;
         }
     </style>
 </head>
@@ -182,45 +201,69 @@
         </div>
     </div>
 </nav>
-<!-- 회원가입 컨테이너 -->
 <div class="container">
-    <div class="signup-container">
-        <h2>회원가입</h2>
-        <form action="signup_process.html" method="post">
-            <div class="form-group">
-                <label for="userId">아이디</label>
-                <div class="d-flex">
-                    <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디를 입력하세요" required>
-                    <button type="button" class="btn btn-check-duplicate">확인</button>
-                </div>
+    <form action="signup_process.html" method="post">
+
+        <div class="form-group">
+            <label for="userId">아이디</label><button type="button" class="btn-check-duplicate" id="checkDuplicateBtn">중복 확인</button>
+            <div class="position-relative">
+                <input type="text" class="form-control" id="userId" name="userId" placeholder="아이디를 입력하세요" required>
             </div>
-            <div class="form-group">
-                <label for="userPw">비밀번호</label>
-                <input type="password" class="form-control" id="userPw" name="userPw" placeholder="비밀번호를 입력하세요" required>
+            <small id="duplicateMessage" class="form-text text-muted"></small>
+        </div>
+        <div class="form-group">
+            <label for="userPw">비밀번호</label>
+            <input type="password" class="form-control" id="userPw" name="userPw" placeholder="비밀번호를 입력하세요" required>
+        </div>
+        <div class="form-group">
+            <label for="userPwConfirm">비밀번호 확인</label>
+            <input type="password" class="form-control" id="userPwConfirm" name="userPwConfirm" placeholder="비밀번호를 다시 입력하세요" required>
+        </div>
+
+        <div class="form-group">
+            <label for="userEmail">이메일</label>
+            <div class="position-relative">
+                <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="이메일 주소를 입력하세요" required>
+                <span class="icon-left bi bi-envelope"></span>
             </div>
-            <div class="form-group">
-                <label for="userPwConfirm">비밀번호 확인</label>
-                <input type="password" class="form-control" id="userPwConfirm" name="userPwConfirm" placeholder="비밀번호를 다시 입력하세요" required>
-            </div>
-            <div class="form-group">
-                <label for="userName">이름</label>
+        </div>
+        <div class="form-group">
+            <label for="userName">이름</label>
+            <div class="position-relative">
                 <input type="text" class="form-control" id="userName" name="userName" placeholder="이름을 입력하세요" required>
+                <span class="icon-left bi bi-person"></span>
             </div>
-            <div class="form-group">
-                <label for="userPhone">휴대폰</label>
-                <input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="휴대폰 번호를 입력하세요" required>
-            </div>
-            <div class="form-group">
-                <label for="userBirth">생년월일</label>
+        </div>
+        <div class="form-group">
+            <label for="userBirth">생년월일</label>
+            <div class="position-relative">
                 <input type="date" class="form-control" id="userBirth" name="userBirth" required>
+                <span class="icon-left bi bi-calendar"></span>
             </div>
-            <div class="form-group">
-                <label for="userEmail">이메일</label>
-                <input type="email" class="form-control" id="userEmail" name="userEmail" placeholder="이메일을 입력하세요" required>
+        </div>
+        <div class="form-group">
+            <label>성별 선택</label>
+            <div class="btn-group btn-group-toggle d-flex" data-toggle="buttons">
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="gender" id="male" autocomplete="off" checked> 남자
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="gender" id="female" autocomplete="off"> 여자
+                </label>
+                <label class="btn btn-outline-secondary">
+                    <input type="radio" name="gender" id="foreigner" autocomplete="off"> 외국인
+                </label>
             </div>
-            <button type="submit" class="btn btn-signup">회원가입</button>
-        </form>
-    </div>
+        </div>
+        <div class="form-group">
+            <label for="userPhone">휴대전화번호</label>
+            <div class="position-relative">
+                <input type="text" class="form-control" id="userPhone" name="userPhone" placeholder="휴대전화번호를 입력하세요" required>
+                <span class="icon-left bi bi-phone"></span>
+            </div>
+        </div>
+        <button type="submit" class="btn-signup">회원가입</button>
+    </form>
 </div>
 
 <!-- 푸터 -->
@@ -230,5 +273,35 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"></script>
+<script>
+    document.getElementById("checkDuplicateBtn").addEventListener("click", function () {
+        var userId = document.getElementById("userId").value;
+        var message = document.getElementById("duplicateMessage");
+
+        if (userId === "") {
+            message.textContent = "아이디를 입력하세요.";
+            message.style.color = "red";
+            return;
+        }
+
+        // 서버에 중복 확인 요청 보내기 (예: AJAX 요청)
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "check_duplicate.php", true);
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                if (xhr.responseText === "duplicate") {
+                    message.textContent = "이미 사용 중인 아이디입니다.";
+                    message.style.color = "red";
+                } else {
+                    message.textContent = "사용 가능한 아이디입니다.";
+                    message.style.color = "green";
+                }
+            }
+        };
+        xhr.send("userId=" + encodeURIComponent(userId));
+    });
+</script>
 </body>
 </html>
