@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인 페이지</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/make.css" rel="stylesheet">
+
+    <!-- 폰트 설정  -->
+    <link th:href="@{https://fonts.gstatic.com}" rel="preconnect"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+            rel="stylesheet"
+    />
+
+</head>
+<body>
+
+<!-- 최상단에 위치한 배경 이미지, 높이 80px -->
+<div class="top-banner"></div>
+
+<!-- 상단 메뉴바 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">CGV</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="moviesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        영화
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="moviesDropdown">
+                        <li><a class="dropdown-item" href="#">현재 상영작</a></li>
+                        <li><a class="dropdown-item" href="#">개봉 예정작</a></li>
+                        <li><a class="dropdown-item" href="#">특별 상영작</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="theatersDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        극장
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="theatersDropdown">
+                        <li><a class="dropdown-item" href="#">주변 극장</a></li>
+                        <li><a class="dropdown-item" href="#">특별관</a></li>
+                        <li><a class="dropdown-item" href="#">상영 시간표</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="reservationDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        예매
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="reservationDropdown">
+                        <li><a class="dropdown-item" href="#">영화 예매</a></li>
+                        <li><a class="dropdown-item" href="#">기타 예매</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="eventsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        이벤트
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="eventsDropdown">
+                        <li><a class="dropdown-item" href="#">진행중 이벤트</a></li>
+                        <li><a class="dropdown-item" href="#">종료된 이벤트</a></li>
+                        <li><a class="dropdown-item" href="#">이벤트 당첨자</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="search.html">검색</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+                <li class="nav-item"><a class="nav-link" href="mypage.html">마이페이지</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- 메인 배너 -->
+<div id="mainBanner" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="images/banner1.jpg" class="d-block w-100" alt="트랜스포머 ONE">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>트랜스포머 ONE</h5>
+                <p>역대급 트랜스포머 극장에서 확인하라!</p>
+                <a href="#" class="btn btn-primary">상세보기</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 무비 차트 -->
+<main class="container movie-chart">
+    <h2>무비 차트</h2>
+    <div class="grid">
+        <div class="movie-item">
+            <img src="movie_poster1.jpg" alt="베테랑 2">
+            <h3>베테랑 2</h3>
+            <p>예매율: 29.5%</p>
+        </div>
+        <div class="movie-item">
+            <img src="movie_poster2.jpg" alt="임영웅 | 아임 히어로 더 파이널">
+            <h3>임영웅 | 아임 히어로 더 파이널</h3>
+            <p>예매율: 21.7%</p>
+        </div>
+        <div class="movie-item">
+            <img src="movie_poster3.jpg" alt="안녕, 하부지">
+            <h3>안녕, 하부지</h3>
+            <p>예매율: 8.4%</p>
+        </div>
+        <div class="movie-item">
+            <img src="movie_poster4.jpg" alt="비틀쥬스 비틀쥬스">
+            <h3>비틀쥬스 비틀쥬스</h3>
+            <p>예매율: 8.2%</p>
+        </div>
+        <div class="movie-item">
+            <img src="movie_poster5.jpg" alt="레드불 T1 다큐멘터리">
+            <h3>레드불 T1 다큐멘터리</h3>
+            <p>예매율: 4.6%</p>
+        </div>
+    </div>
+</main>
+
+<!-- 이벤트 -->
+<section class="event-section">
+    <h2>이벤트</h2>
+    <div class="grid">
+        <div class="movie-item">
+            <img src="event_image1.jpg" alt="VIP Easy Up 챌린지">
+            <h3>VIP Easy Up 챌린지</h3>
+            <p>2024.08.30 - 2024.09.05</p>
+        </div>
+        <div class="movie-item">
+            <img src="event_image2.jpg" alt="가을만큼 풍성한 무비 추천템">
+            <h3>가을만큼 풍성한 무비 추천템</h3>
+            <p>2024.08.30 - 2024.09.15</p>
+        </div>
+        <div class="movie-item">
+            <img src="event_image3.jpg" alt="브레드 이발소 프리미어 상영회">
+            <h3>브레드 이발소 프리미어 상영회</h3>
+            <p>2024.08.28 - 2024.09.08</p>
+        </div>
+    </div>
+</section>
+
+
+<footer class="footer">
+    <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
+    <p>고객센터: 1544-1122</p>
+</footer>
+
+<script src="js/navbar.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
