@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>쿠폰/포인트<마이페이지></title>
+    <title>쿠폰/포인트 내역 - 마이페이지</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
@@ -121,8 +121,66 @@
         }
 
         .content-box p {
-            margin: 0;
+            margin: 10px 0;
             color: #555;
+            line-height: 1.6;
+        }
+
+        .content-box h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #FF2C81;
+            padding-bottom: 5px;
+        }
+
+        .movie-card {
+            width: 30%;
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-right: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie-card img {
+            border-radius: 8px;
+            margin-bottom: 10px;
+            max-width: 100%;
+        }
+
+        .movie-card p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .movie-card p.text-danger {
+            font-weight: bold;
+            color: #FF2C81;
+        }
+
+        .table-bordered {
+            border: 1px solid #ccc;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table thead th {
+            background-color: #f9f9f9;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .text-muted {
+            color: #777 !important;
         }
 
         .fixed-button {
@@ -145,12 +203,63 @@
             width: 20px;
             height: 20px;
         }
+
+        /* 추가된 CSS 스타일 */
+        .coupon-table, .point-table {
+            margin-top: 20px;
+        }
+
+        .tab-content {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .nav-tabs {
+            margin-bottom: 15px;
+        }
+
+        .nav-tabs .nav-link.active {
+            background-color: #ce1c6a;
+            color: white;
+        }
+
+        .nav-tabs .nav-link {
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            margin-right: 10px;
+            text-align: center;
+            padding: 10px;
+            border: 1px solid #ccc;
+            color: #333;
+        }
+
+        .info-text {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .btn-register {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-register:hover {
+            background-color: #444;
+        }
+
     </style>
 </head>
 <body>
 <!-- 최상단에 위치한 배경 이미지, 높이 80px -->
 <div class="top-banner">
-    <img alt="가로 광고바"  class="d-block w-100" src="img/광고바_가로.jpg">
+    <img alt="가로 광고바" class="d-block w-100" src="img/광고바_가로.jpg">
 </div>
 
 <!-- 상단 메뉴바 -->
@@ -236,30 +345,148 @@
 
         <!-- 콘텐츠 영역 -->
         <div class="content-area">
-            <h3>예매 내역</h3>
+            <!-- 쿠폰/포인트 관리 섹션 -->
+            <h3>쿠폰/포인트 관리</h3>
+
+            <!-- 관람권/할인쿠폰 관리 -->
             <div class="content-box">
-                <p>고객님의 최근 예매내역이 존재하지 않습니다.</p>
+                <h4>CGV 영화관람권 보유(등록) 내역</h4>
+                <div class="info-text">CGV 영화관람권 보유(등록) 내역이 존재하지 않습니다.</div>
+                <button class="btn-register">CGV 영화관람권 등록</button>
             </div>
 
-            <h3>쿠폰/포인트</h3>
             <div class="content-box">
-                <p>사용 가능한 쿠폰: 1개</p>
-                <p>사용 가능한 포인트: 1,371점</p>
+                <h4>CGV 영화관람권 사용내역</h4>
+                <div class="coupon-table">
+                    <p class="info-text">3개월 이전의 내역은 자동 삭제됩니다.</p>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>관람권 이름</th>
+                            <th>영화관람권 번호</th>
+                            <th>분류</th>
+                            <th>기타</th>
+                            <th>상태</th>
+                            <th>사용일</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="6">CGV 영화관람권 사용내역이 존재하지 않습니다.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
 
-            <h3>내가 본 영화</h3>
+            <!-- 할인쿠폰 관리 -->
             <div class="content-box">
-                <p>관람한 영화 기록이 없습니다.</p>
+                <h4>CGV 할인쿠폰 보유(등록) 내역</h4>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">영화쿠폰</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">기타쿠폰</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="movie-coupons">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>쿠폰 이름</th>
+                                <th>사용기간</th>
+                                <th>사용가능경로</th>
+                                <th>쿠폰 정보</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><이매지너리> 3천원 관람쿠폰</td>
+                                <td>2024-08-27 ~ 2024-09-03</td>
+                                <td>홈페이지, APP</td>
+                                <td>전용 쿠폰 - 사용 가능</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="tab-pane fade" id="other-coupons">
+                        <div class="info-text">기타 쿠폰 사용내역이 없습니다.</div>
+                    </div>
+                </div>
+                <button class="btn-register">CGV 할인쿠폰 등록</button>
             </div>
 
-            <h3>내가 쓴 평점</h3>
             <div class="content-box">
-                <p>작성한 평점이 없습니다.</p>
+                <h4>CGV 할인쿠폰 사용내역</h4>
+                <div class="coupon-table">
+                    <p class="info-text">3개월 이전의 내역은 자동 삭제됩니다.</p>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>쿠폰 이름</th>
+                            <th>쿠폰 번호</th>
+                            <th>사용일</th>
+                            <th>사용극장</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td colspan="4">CGV 할인쿠폰 사용내역이 존재하지 않습니다.</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- 포인트 적립 안내 -->
+            <div class="content-box">
+                <h4>CJ ONE 포인트 적립 안내</h4>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>구분</th>
+                        <th>적립률</th>
+                        <th>비고</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>매표</td>
+                        <td>영화 상영일 이전 예매 시 5%</td>
+                        <td>환불 후 재결제 시점의 적립률 적용</td>
+                    </tr>
+                    <tr>
+                        <td>매점</td>
+                        <td>영화 상영일 당일 예매 시 3%</td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>씨네샵(오프라인)</td>
+                        <td>0.5%</td>
+                        <td>씨네샵 이동형 간이매장 적립 제외</td>
+                    </tr>
+                    <tr>
+                        <td>씨네드쉐프 F&B</td>
+                        <td>0.1%</td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 이용 안내 -->
+            <div class="content-box">
+                <h4>이용 안내</h4>
+                <p>CGV 영화관람권은 금액권이 아닙니다. 특정 영화에 대한 추가 결제 후 관람 가능합니다.</p>
+                <p>CGV 영화관람권으로 예매 시, 포인트 적립은 되지 않습니다.</p>
+                <p>유효기간이 경과한 미사용 쿠폰은 자동 소멸됩니다.</p>
+                <p>기타 문의사항이 있으실 경우, 고객센터로 문의해 주시기 바랍니다.</p>
             </div>
         </div>
     </div>
 </div>
-
 
 <footer class="footer">
     <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
