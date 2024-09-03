@@ -6,13 +6,6 @@
     <title>공지/뉴스</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-
-    <!-- 폰트 설정 -->
-    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}"/>
-    <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i"
-            rel="stylesheet"
-    />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,6 +19,47 @@
             margin: 0 auto;
             background-color: #fff;
             padding: 20px;
+        }
+
+        .sidebar {
+            flex: 0 0 250px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        .sidebar a:hover, .sidebar a.active {
+            background-color: #ce1c6a;
+            color: #fff;
+        }
+
+        .promo-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: auto;
+            border: 1px solid #ccc;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            margin-left: 20px;
+            border: 1px solid #ccc;
         }
 
         .main-section {
@@ -60,157 +94,86 @@
             border-radius: 8px; /* 모서리를 둥글게 설정 */
         }
 
-        .info-boxes {
-            flex: 2;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-        }
-
-        .info-box {
-            flex: 1;
-            text-align: center;
-            border: 1px solid #ccc;
-            margin: 0 10px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .contact-button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .services-section {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .service {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            margin: 0 10px;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
         .news-section {
             margin-bottom: 20px;
-        }
-
-        .news-title {
-            font-weight: bold;
-            margin-bottom: 10px;
         }
 
         .news-list {
             list-style-type: none;
             padding: 0;
-        }
-
-        .news-list li {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .promo-section {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .promo-box {
-            flex: 1;
-            text-align: center;
-            padding: 30px;
-            background-color: #f9f9f9;
-            margin: 10px 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .footer-section {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .footer-box {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            background-color: #f9f9f9;
-            margin: 0 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .footer-button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        /* 새로운 스타일 추가 */
-        .sidebar {
-            flex: 0 0 250px;
-            background-color: #f0f0f0;
-            padding: 20px;
-            border-radius: 8px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .sidebar a {
-            display: block;
-            padding: 10px;
-            margin-bottom: 10px;
-            background-color: #fff;
-            border-radius: 8px;
-            text-decoration: none;
-            color: #333;
-            border: 1px solid #ccc;
-        }
-
-        .sidebar a:hover, .sidebar a.active {
-            background-color: #ce1c6a;
-            color: #fff;
-        }
-
-        .promo-image {
+            margin: 0;
+            border-collapse: collapse;
             width: 100%;
-            border-radius: 8px;
-            margin-top: auto; /* 이미지를 사이드바의 하단에 배치 */
-            border: 1px solid #ccc;
         }
 
-        .content-area {
-            flex: 1;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            margin-left: 20px;
-            border: 1px solid #ccc;
+        .news-list th, .news-list td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
         }
+
+        .news-list th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .news-list tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .pagination a {
+            color: #ce1c6a;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+            border-radius: 5px;
+        }
+
+        .pagination a.active {
+            background-color: #ce1c6a;
+            color: white;
+            border: 1px solid #ce1c6a;
+        }
+
+        .pagination a:hover {
+            background-color: #ddd;
+        }
+
+        .fixed-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #FF2C81;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .fixed-button img {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
     </style>
 </head>
 <body>
 
-<!-- 최상단에 위치한 배경 이미지, 높이 80px -->
+<!-- 최상단에 위치한 배경 이미지 -->
 <div class="top-banner">
-    <img alt="가로 광고바"  class="d-block w-100" src="img/광고바_가로.jpg">
+    <img alt="가로 광고바" class="d-block w-100" src="img/광고바_가로.jpg">
 </div>
 
 <!-- 상단 메뉴바 -->
@@ -223,7 +186,6 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-                <!-- 드롭다운 메뉴 추가 -->
                 <li class="nav-item dropdown">
                     <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
                        id="moviesDropdown" role="button">
@@ -262,7 +224,6 @@
                         <li><a class="dropdown-item" href="#">이벤트 응모/당첨자</a></li>
                     </ul>
                 </li>
-                <!-- 더 많은 메뉴 아이템 추가 -->
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="search.html">검색</a></li>
@@ -272,16 +233,16 @@
         </div>
     </div>
 </nav>
-<!-- 고객센터 시작 -->
+
+<!-- 공지/뉴스 페이지 시작 -->
 <div class="container">
     <div class="d-flex">
-        <!-- 고객센터 안 사이드바 -->
+        <!-- 사이드바 -->
         <div class="sidebar">
             <a href="customerCenter.html">고객센터 메인</a>
-            <a href="customerCenter2.html" >자주 찾는 질문</a>
-            <a href="customerCenter3.html"  class="active">공지/뉴스</a>
+            <a href="customerCenter2.html">자주 찾는 질문</a>
+            <a href="customerCenter3.html" class="active">공지/뉴스</a>
             <a href="customerCenter4.html">이메일 문의</a>
-            <!-- 프로모션 이미지 -->
             <img class="promo-image" src="/img/트렌스포머.png" alt="프로모션 이미지">
         </div>
 
@@ -289,90 +250,117 @@
         <div class="content-area">
             <div class="main-section">
                 <div class="search-section">
-                    <input type="text" class="search-input" placeholder="자주 찾는 검색어를 입력해주세요.">
+                    <input type="text" class="search-input" placeholder="검색어를 입력해주세요.">
                     <button class="search-button">검색</button>
-                </div>
-                <div class="info-boxes">
-                    <div class="info-box">
-                        <p>이메일 문의</p>
-                        <p>24시간 365일 언제나 문의해주세요.</p>
-                        <button class="contact-button">문의하기</button>
-                    </div>
-                    <div class="info-box">
-                        <p>내 상담 내역 확인</p>
-                        <p>문의하신 내용을 확인하실 수 있습니다.</p>
-                        <button class="contact-button">문의내역 조회</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="services-section">
-                <div class="service">
-                    <p>예매/취소내역 확인</p>
-                </div>
-                <div class="service">
-                    <p>비회원 예매/취소</p>
-                </div>
-                <div class="service">
-                    <p>멤버십포인트 사용안내</p>
-                </div>
-                <div class="service">
-                    <p>관람권/할인쿠폰 등록</p>
                 </div>
             </div>
 
             <div class="news-section">
-                <p class="news-title">공지/뉴스</p>
-                <ul class="news-list">
-                    <li>[극장] CGV [월드투어] 무대인사 화제! </li>
-                    <li>[기타] CGV 헤페머니상품권 사용중지 안내</li>
-                    <li>[CGV] 무대인사 예매취소 정책 변경 안내</li>
-                    <li>[시스템점검] 2024년 9월 시스템 점검</li>
-                    <li>[시스템점검] 시스템 점검 관련 안내</li>
-                </ul>
+                <table class="news-list">
+                    <thead>
+                    <tr>
+                        <th>번호</th>
+                        <th>구분</th>
+                        <th>제목</th>
+                        <th>등록일</th>
+                        <th>조회수</th>
+                    </tr>
+                    </thead>
+                    <tbody id="news-list">
+                    <!-- 공지/뉴스 항목이 여기에 동적으로 추가됩니다 -->
+                    </tbody>
+                </table>
             </div>
-        </div>
-    </div>
 
-    <div class="promo-section">
-        <div class="promo-box">
-            <p>CGV PREVIEW</p>
-            <p>시사회/무대인사</p>
-        </div>
-        <div class="promo-box">
-            <p>DISCOUNT INFO</p>
-            <p>할인카드 및 혜택 안내</p>
-        </div>
-    </div>
+            <!-- 페이지 네이션 -->
+            <div class="pagination">
+                <a href="#" class="page-link">«</a>
+                <a href="#" class="page-link active" data-page="1">1</a>
+                <a href="#" class="page-link" data-page="2">2</a>
+                <a href="#" class="page-link" data-page="3">3</a>
+                <a href="#" class="page-link" data-page="4">4</a>
+                <a href="#" class="page-link" data-page="5">5</a>
+                <a href="#" class="page-link" data-page="6">6</a>
+                <a href="#" class="page-link">»</a>
+            </div>
 
-    <div class="footer-section">
-        <div class="footer-box">
-            <p>대관/단체 서비스</p>
-            <p>WaTching 에서 진행하는 우리만의 특별한 이벤트 색다른 문화행사</p>
-            <button class="footer-button">바로가기</button>
-        </div>
-        <div class="footer-box">
-            <p>VIP 안내</p>
-            <p>영화를 사랑하는 당신에게 드리는 특별한 WaTching만의 특별한 VIP혜택</p>
-            <button class="footer-button">바로가기</button>
-        </div>
-        <div class="footer-box">
-            <p>VIP 고객센터</p>
-            <p>VIP 고객님들께 알려드리는 VIP 혜택 제대로 활용하는 방법</p>
-            <button class="footer-button">바로가기</button>
         </div>
     </div>
 </div>
-
 
 <footer class="footer">
     <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
     <p>고객센터: 1544-1122</p>
 </footer>
 
+<!-- 하단 고정 버튼 -->
+<a href="#" class="fixed-button">예매하기</a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/main.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const itemsPerPage = 10;
+        const newsList = document.getElementById('news-list');
+        const pageLinks = document.querySelectorAll('.page-link[data-page]');
+
+        // 가상의 공지/뉴스 데이터를 만듭니다
+        const newsData = [
+            {number: 106, category: '극장', title: '[CGV] 스냅챗과 월드투어 [본 핑크] 인 시네마스', date: '2024.08.09', views: 67003},
+            {number: 105, category: '기타', title: '[CGV] 해피머니상품권 사용중지 안내', date: '2024.07.25', views: 104114},
+            {number: 104, category: '행사/이벤트', title: '[CGV] 무대인사 예매취소 정책 변경 안내', date: '2024.01.02', views: 553214},
+            {number: 103, category: '시스템점검', title: '2024년 9월 시스템점검', date: '2024.08.27', views: 18648},
+            {number: 102, category: '시스템점검', title: '[시스템점검] 결제관련 서비스 시스템 점검', date: '2024.08.14', views: 51978},
+            {number: 101, category: '시스템점검', title: '[시스템점검] 복합리조트 서비스 시스템 점검', date: '2024.08.13', views: 44965},
+            {number: 100, category: '시스템점검', title: '2024년 8월 시스템점검', date: '2024.07.17', views: 95594},
+            {number: 99, category: '제휴이벤트', title: '[아시아나 마일리지] 제휴 종료 안내', date: '2024.07.05', views: 117760},
+            {number: 98, category: '시스템점검', title: '2024년 7월 시스템점검', date: '2024.07.02', views: 114421},
+            {number: 97, category: '기타', title: '개인(위치)정보보호지침 개정 공지', date: '2024.06.24', views: 123718},
+            {number: 96, category: '시스템점검', title: '2024년 6월 시스템점검', date: '2024.06.15', views: 156297},
+            {number: 95, category: '행사/이벤트', title: '[CGV] <소녀와 엉크 튀야> 최종화 단체 관람 이벤트', date: '2024.05.23', views: 208996},
+            {number: 94, category: '극장', title: 'CGV 씨네샵 광고포진 운영 종료 안내', date: '2024.05.16', views: 182545},
+            {number: 93, category: '시스템점검', title: '2024년 5월 시스템 점검 공지', date: '2024.04.15', views: 222140},
+            {number: 92, category: '시스템점검', title: '2024년 4월 시스템 공지', date: '2024.03.27', views: 252280},
+            {number: 91, category: '기타', title: '[CGV] 비정상적 예매티켓 모니터링 강화 안내', date: '2024.03.22', views: 254776},
+            {number: 90, category: '시스템점검', title: '2024년 3월 시스템 공지안내', date: '2024.03.11', views: 233392},
+            {number: 89, category: '극장', title: 'CGV 씨네샵 엉동포진 운영 종료 안내', date: '2024.03.04', views: 236497},
+            {number: 88, category: '극장', title: '[CGV센텀시티] 선언영화 (02/09~02/10) 신세계백화점', date: '2024.02.01', views: 280599},
+            {number: 87, category: '행사/이벤트', title: '[원카 4DX 신규 초콜릿향 진행극장 변경 안내 (1/...)', date: '2024.01.30', views: 443929},
+        ];
+
+        function renderNews(pageNumber) {
+            newsList.innerHTML = '';
+
+            const start = (pageNumber - 1) * itemsPerPage;
+            const end = start + itemsPerPage;
+
+            newsData.slice(start, end).forEach(item => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${item.number}</td>
+                    <td>${item.category}</td>
+                    <td>${item.title}</td>
+                    <td>${item.date}</td>
+                    <td>${item.views}</td>
+                `;
+                newsList.appendChild(row);
+            });
+
+            pageLinks.forEach(link => link.classList.remove('active'));
+            document.querySelector(`.page-link[data-page="${pageNumber}"]`).classList.add('active');
+        }
+
+        pageLinks.forEach(link => {
+            link.addEventListener('click', function (event) {
+                event.preventDefault();
+                const page = parseInt(this.getAttribute('data-page'));
+                renderNews(page);
+            });
+        });
+
+        // 초기화 - 첫 번째 페이지 표시
+        renderNews(1);
+    });
+</script>
 
 </body>
 </html>

@@ -6,13 +6,6 @@
     <title>이메일 문의</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
-
-    <!-- 폰트 설정 -->
-    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}"/>
-    <link
-            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i"
-            rel="stylesheet"
-    />
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,144 +19,9 @@
             margin: 0 auto;
             background-color: #fff;
             padding: 20px;
+            border-radius: 8px;
         }
 
-        .main-section {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .search-section {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .search-input {
-            width: 80%;
-            padding: 10px;
-            border: none;
-            outline: none;
-        }
-
-        .search-button {
-            width: 20%;
-            padding: 10px;
-            background-color: #ce1c6a;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .info-boxes {
-            flex: 2;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-        }
-
-        .info-box {
-            flex: 1;
-            text-align: center;
-            border: 1px solid #ccc;
-            margin: 0 10px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .contact-button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .services-section {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .service {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #f9f9f9;
-            margin: 0 10px;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .news-section {
-            margin-bottom: 20px;
-        }
-
-        .news-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .news-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .news-list li {
-            padding: 10px;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .promo-section {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-        }
-
-        .promo-box {
-            flex: 1;
-            text-align: center;
-            padding: 30px;
-            background-color: #f9f9f9;
-            margin: 10px 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .footer-section {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .footer-box {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            background-color: #f9f9f9;
-            margin: 0 10px;
-            border: 1px solid #ccc;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        .footer-button {
-            margin-top: 10px;
-            padding: 10px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-            border-radius: 8px; /* 모서리를 둥글게 설정 */
-        }
-
-        /* 새로운 스타일 추가 */
         .sidebar {
             flex: 0 0 250px;
             background-color: #f0f0f0;
@@ -192,8 +50,8 @@
         .promo-image {
             width: 100%;
             border-radius: 8px;
-            margin-top: auto; /* 이미지를 사이드바의 하단에 배치 */
             border: 1px solid #ccc;
+            margin-top: 20px; /* 링크들 아래에 적당한 간격을 추가합니다 */
         }
 
         .content-area {
@@ -204,13 +62,128 @@
             margin-left: 20px;
             border: 1px solid #ccc;
         }
+
+        .content-area h2 {
+            margin-bottom: 20px;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .input-group input[type="text"],
+        .input-group input[type="email"],
+        .input-group textarea,
+        .input-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .input-group textarea {
+            resize: none;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .form-group input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .form-btn{
+            font-weight: bold;
+        }
+        .warning-box {
+            background-color: #f8f9fa;
+            border: 1px solid #ccc;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        .warning-box p {
+            margin: 0;
+            color: #ff2c81;
+        }
+
+        .button-group {
+            text-align: center;
+        }
+
+        .button-group button {
+            padding: 10px 30px;
+            background-color: #ff2c81;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .button-group button.cancel {
+            background-color: #ccc;
+            margin-right: 10px;
+        }
+
+        .form-footer {
+            text-align: right;
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .form-footer a {
+            text-decoration: none;
+            color: #ff2c81;
+            font-weight: bold;
+        }
+
+        .fixed-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #FF2C81;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .fixed-button img {
+            margin-left: 10px;
+            width: 20px;
+            height: 20px;
+        }
+
     </style>
 </head>
 <body>
-
-<!-- 최상단에 위치한 배경 이미지, 높이 80px -->
+<!-- 최상단에 위치한 배경 이미지 -->
 <div class="top-banner">
-    <img alt="가로 광고바"  class="d-block w-100" src="img/광고바_가로.jpg">
+    <img alt="가로 광고바" class="d-block w-100" src="img/광고바_가로.jpg">
 </div>
 
 <!-- 상단 메뉴바 -->
@@ -223,7 +196,6 @@
         </button>
         <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
             <ul class="navbar-nav mx-auto">
-                <!-- 드롭다운 메뉴 추가 -->
                 <li class="nav-item dropdown">
                     <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
                        id="moviesDropdown" role="button">
@@ -262,7 +234,6 @@
                         <li><a class="dropdown-item" href="#">이벤트 응모/당첨자</a></li>
                     </ul>
                 </li>
-                <!-- 더 많은 메뉴 아이템 추가 -->
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="search.html">검색</a></li>
@@ -272,107 +243,125 @@
         </div>
     </div>
 </nav>
-<!-- 고객센터 시작 -->
+
 <div class="container">
     <div class="d-flex">
-        <!-- 고객센터 안 사이드바 -->
+        <!-- 사이드바 -->
         <div class="sidebar">
             <a href="customerCenter.html">고객센터 메인</a>
-            <a href="customerCenter2.html" >자주 찾는 질문</a>
-            <a href="customerCenter3.html" >공지/뉴스</a>
-            <a href="customerCenter4.html"  class="active">이메일 문의</a>
-            <!-- 프로모션 이미지 -->
-            <img class="promo-image" src="/img/트렌스포머.png" alt="프로모션 이미지">
+            <a href="customerCenter2.html">자주 찾는 질문</a>
+            <a href="customerCenter3.html">공지/뉴스</a>
+            <a href="customerCenter4.html" class="active">이메일 문의</a>
+            <img class="promo-image" src="img/트렌스포머.png" alt="프로모션 이미지">
         </div>
 
         <!-- 콘텐츠 영역 -->
         <div class="content-area">
-            <div class="main-section">
-                <div class="search-section">
-                    <input type="text" class="search-input" placeholder="자주 찾는 검색어를 입력해주세요.">
-                    <button class="search-button">검색</button>
-                </div>
-                <div class="info-boxes">
-                    <div class="info-box">
-                        <p>이메일 문의</p>
-                        <p>24시간 365일 언제나 문의해주세요.</p>
-                        <button class="contact-button">문의하기</button>
-                    </div>
-                    <div class="info-box">
-                        <p>내 상담 내역 확인</p>
-                        <p>문의하신 내용을 확인하실 수 있습니다.</p>
-                        <button class="contact-button">문의내역 조회</button>
-                    </div>
+            <h2>이메일 문의</h2>
+
+            <!-- 사용자 정보 -->
+            <div class="input-group">
+                <label for="name">이름</label>
+                <input type="text" id="name" value="">
+            </div>
+
+            <div class="input-group">
+                <label for="phone">휴대전화</label>
+                <input type="text" id="phone" value="">
+                <p> ※ 문의에 대한 빠른 답변을 위해 회원 가입 시 입력하신 연락처를 확인해주세요.</p>
+            </div>
+
+            <div class="input-group">
+                <label for="email">이메일</label>
+                <input type="email" id="email" value="">
+                <div><button class="btn btn-secondary mt-2">수정</button></div>
+            </div>
+
+            <!-- 문의 유형 -->
+            <div class="form-group">
+                <div class="form-btn">
+                <label>문의유형 <span class="text-danger">*</span></label>
+                <input type="radio" name="inquiryType" value="문의" checked> 문의
+                <input type="radio" name="inquiryType" value="불만"> 불만
+                <input type="radio" name="inquiryType" value="칭찬"> 칭찬
+                <input type="radio" name="inquiryType" value="제안"> 제안
+                <input type="radio" name="inquiryType" value="분실물"> 분실물
                 </div>
             </div>
 
-            <div class="services-section">
-                <div class="service">
-                    <p>예매/취소내역 확인</p>
-                </div>
-                <div class="service">
-                    <p>비회원 예매/취소</p>
-                </div>
-                <div class="service">
-                    <p>멤버십포인트 사용안내</p>
-                </div>
-                <div class="service">
-                    <p>관람권/할인쿠폰 등록</p>
+            <!-- 영화관 선택 -->
+            <div class="form-group">
+                <div class="form-btn">
+                <label>영화관 선택</label>
+                <select id="country">
+                    <option selected>기본 국내</option>
+                    <option value="국내">국내</option>
+                    <option value="해외">국외</option>
+                </select>
+                <select id="region">
+                    <option selected>지역 선택</option>
+                    <option value="국내">서울</option>
+                    <option value="국내">대전</option>
+                    <option value="국내">대구</option>
+                    <option value="국내">부산</option>
+                </select>
+                <select id="theater">
+                    <option selected>영화관 선택</option>
+                </select>
                 </div>
             </div>
 
-            <div class="news-section">
-                <p class="news-title">공지/뉴스</p>
-                <ul class="news-list">
-                    <li>[극장] CGV [월드투어] 무대인사 화제! </li>
-                    <li>[기타] CGV 헤페머니상품권 사용중지 안내</li>
-                    <li>[CGV] 무대인사 예매취소 정책 변경 안내</li>
-                    <li>[시스템점검] 2024년 9월 시스템 점검</li>
-                    <li>[시스템점검] 시스템 점검 관련 안내</li>
-                </ul>
+            <!-- 제목 -->
+            <div class="input-group">
+                <label for="title">제목 <span class="text-danger">*</span></label>
+                <input type="text" id="title" placeholder="문의 제목을 입력하세요">
             </div>
-        </div>
-    </div>
 
-    <div class="promo-section">
-        <div class="promo-box">
-            <p>CGV PREVIEW</p>
-            <p>시사회/무대인사</p>
-        </div>
-        <div class="promo-box">
-            <p>DISCOUNT INFO</p>
-            <p>할인카드 및 혜택 안내</p>
-        </div>
-    </div>
+            <!-- 내용 -->
+            <div class="input-group">
+                <label for="content">내용 <span class="text-danger">*</span></label>
+                <textarea id="content" rows="6" placeholder="문의 내용을 입력하세요"></textarea>
+                <div class="form-footer">
+                    <span>0/5000BYTE (0/2500자)</span>
+                </div>
+            </div>
 
-    <div class="footer-section">
-        <div class="footer-box">
-            <p>대관/단체 서비스</p>
-            <p>WaTching 에서 진행하는 우리만의 특별한 이벤트 색다른 문화행사</p>
-            <button class="footer-button">바로가기</button>
-        </div>
-        <div class="footer-box">
-            <p>VIP 안내</p>
-            <p>영화를 사랑하는 당신에게 드리는 특별한 WaTching만의 특별한 VIP혜택</p>
-            <button class="footer-button">바로가기</button>
-        </div>
-        <div class="footer-box">
-            <p>VIP 고객센터</p>
-            <p>VIP 고객님들께 알려드리는 VIP 혜택 제대로 활용하는 방법</p>
-            <button class="footer-button">바로가기</button>
+            <!-- 경고 메시지 -->
+            <div class="warning-box">
+                <p>※ 문의 내용 및 첨부파일 내에 개인정보(신용카드번호, 계좌번호, 주민번호 등)가 포함되지 않도록 유의하시기 바랍니다.</p>
+                <p>※ 이벤트 굿즈 재고 문의 안내</p>
+                <p>경품 특성상 실시간으로 소진되어 재고 안내가 어려운 관계로 문의 글에 대한 답변이 어렵습니다.</p>
+            </div>
+
+            <!-- 첨부파일 -->
+            <div class="input-group">
+                <label for="file">첨부파일</label>
+                <input type="file" id="file">
+                <p class="form-footer">*첨부가능 확장자: 이미지(jpg, gif, bmp, png, jpeg), 워드문서(hwp, ppt, pptx, xls, xlsx, doc, docx, zip, pdf, txt)</p>
+            </div>
+
+            <!-- 버튼 그룹 -->
+            <div class="button-group">
+                <button class="cancel">취소</button>
+                <button>등록하기</button>
+            </div>
         </div>
     </div>
 </div>
-
 
 <footer class="footer">
     <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
     <p>고객센터: 1544-1122</p>
 </footer>
 
+<!-- 하단 고정 버튼 -->
+<a href="#" class="fixed-button">예매하기</a>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/main.js"></script>
+
+<script>
+    // JavaScript 코드 (영화관 선택 등)
+</script>
 
 </body>
 </html>
