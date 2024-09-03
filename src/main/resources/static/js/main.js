@@ -80,4 +80,9 @@ document.querySelector('.scroll-up').addEventListener('click', function() {
     });
 });
 
+// 페이지를 새로고침하는 함수
+function refreshPage() {
+    location.reload();  // 페이지 새로고침
+}
+
 
