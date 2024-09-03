@@ -29,18 +29,15 @@ header {
     flex-wrap: wrap; /* 메뉴 항목이 너무 많을 경우 줄바꿈 */
 }
 
-.navbar-brand {
-    color: white;
-    padding-left: 20px;
-    text-decoration: none;
-    font-weight: bold; /* 메뉴 항목을 굵게 */
-}
-
-.nav-link {
+.navbar-brand, .nav-link {
     color: white;
     text-decoration: none;
     font-weight: bold; /* 메뉴 항목을 굵게 */
     margin-left: 30px;
+}
+
+.navbar-brand {
+    padding-left: 20px;
 }
 
 .nav-link:hover {
@@ -63,6 +60,7 @@ header {
 .dropdown-menu a:hover {
     background-color: #e9ecef;
 }
+
 /* 배너 스타일 설정 */
 #mainBanner {
     height: 500px;
@@ -72,7 +70,6 @@ header {
     height: 500px;
     object-fit: cover;
 }
-
 
 /* 메인 배너의 상세보기 버튼과 텍스트를 왼쪽 정렬 */
 .carousel-caption {
@@ -95,46 +92,12 @@ header {
     color: rgba(0, 0, 0, 0.9); /* 마우스 오버 시 글씨를 약간 덜 투명하게 변경 */
 }
 
-
-.banner {
-    position: relative;
-    overflow: hidden;
-}
-
-.banner img {
-    width: 100%;
-    height: auto;
-}
-
-.banner-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 10px;
-    border-radius: 10px;
-}
-
-.banner-text h2 {
-    font-size: 2.5rem;
- }
-
-.carousel-caption h1 {
+.carousel-caption h1, .carousel-caption h5 {
     font-weight: 900;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
     text-align: left;
 }
-.carousel-caption h5 {
-    font-weight: 900;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* 그림자 효과 */
-    text-align: left;
-}
-
 
 /* 무비 차트 스타일 설정 */
 .movie-chart {
@@ -175,11 +138,10 @@ header {
     background: white;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     transition: transform 0.3s;
     height: 340px; /* 전체 높이 조정 */
-    gap: 10px; /* 요소들 간의 거리 조절 */
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -200,20 +162,16 @@ header {
 .movie-item h3 {
     font-size: 1.2rem;
     margin: 10px 0 5px;
-    text-align: center;
 }
 
-movie-item p {
+.movie-item p {
     color: #777;
     font-size: 0.9rem;
-    text-align: center;
     margin-bottom: 0;
 }
 
-.movie-item .movie-rank {
+.movie-item .movie-rank, .movie-item .movie-age-badge {
     position: absolute;
-    top: 10px;
-    left: 10px;
     background-color: rgba(0, 0, 0, 0.6);
     color: white;
     padding: 5px 10px;
@@ -221,13 +179,14 @@ movie-item p {
     font-weight: bold;
 }
 
+.movie-item .movie-rank {
+    top: 10px;
+    left: 10px;
+}
+
 .movie-item .movie-age-badge {
-    position: absolute;
     top: 10px;
     right: 10px;
-    background-color: rgba(0, 0, 0, 0.6);
-    color: white;
-    padding: 5px 10px;
     border-radius: 3px;
 }
 
@@ -245,94 +204,357 @@ movie-item p {
     gap: 5px;
 }
 
-
 .movie-item:hover .movie-buttons {
     display: flex;
 }
 
+/* 영화 상세 정보 스타일 */
 .movie-info {
-    flex-direction: row;
+    display: flex;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    justify-content: space-between;
+}
+
+.poster-section {
+    margin-right: 20px;
+}
+
+.poster-section img {
+    width: 200px;  /* 너비를 200px로 고정 */
+    height: 300px; /* 높이를 300px로 고정 */
+    object-fit: cover; /* 이미지가 잘리지 않고 영역에 맞게 조정 */
+    border-radius: 10px; /* 모서리를 둥글게 */
+}
+
+.details-section {
+    flex: 1;
+    text-align: center;
+}
+
+.rating-section {
+    text-align: center;
+    color: #f39c12; /* 별 색상 */
+    font-size: 24px;
+}
+.star-rating i {
+    margin-right: 5px; /* 별 사이 간격 */
+}
+
+.rating, .reservation-rate, .audience-rating {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.movie-details {
+    line-height: 1.6;
+    text-align: left; /* 텍스트 왼쪽 정렬 */
+    max-width: 500px; /* 너비 고정 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+.buttons-section {
+    margin-top: 20px;
+}
+
+.ticket-button, .like-button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.ticket-button {
+    background-color: #ce1c6a;
+    color: white;
+    margin-right: 10px;
+}
+
+.like-button {
+    background-color: #efbddf;
+    color: white;
+}
+
+/* 탭 스타일 설정 */
+.tabs-section {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f7f7f7;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+
+.tabs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tab {
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #666;
+    border-bottom: 3px solid transparent;
+}
+
+.tab:hover {
+    color: #333;
+    border-bottom: 3px solid #ff5a5f;
+}
+
+/* 시놉시스 스타일 */
+.synopsis-section {
+    padding: 20px;
+    line-height: 1.8;
+    font-size: 16px;
+    max-width: 600px; /* 중앙 정렬을 위한 고정 너비 */
+    margin: 0 auto; /* 중앙 정렬 */
+}
+
+/* Still Cut Section */
+.still-cut-section {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+
+.still-cut-header {
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
 }
 
-.movie-info h3 {
-    font-size: 1rem; /* 제목 크기 조정 */
+.add-button {
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.still-cut-gallery {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.still-cut-image {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.gallery-nav {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* 리뷰 섹션 스타일 */
+.review-section {
+    padding: 20px;
+    border-top: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.review-header h3 {
     margin: 0;
-    white-space: nowrap; /* 텍스트가 길면 줄바꿈 없이 생략 */
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 20px;
+}
+.review-input h4 {
+    margin-bottom: 10px;
+}
+.review-input textarea {
+    background-color: #d2a6b5;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 10px;
+    padding: 15px;
+    resize: none;
 }
 
-.movie-info p {
-    font-size: 0.85rem; /* 예매율 크기 조정 */
-    color: #777;
-    margin: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+.review-input textarea::placeholder {
+    color: #bbb; /* 밝은 회색 플레이스홀더 */
+}
+.review-input button {
+    background-color: #ce1c6a;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
 }
 
-/* 캐러셀 컨트롤 스타일 설정 */
-.carousel-control-prev,
-.carousel-control-next {
+.review-input button:hover {
+    background-color: #b43d66;
+}
+
+.review-filter {
+    padding: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #555;
+    margin: 0 10px;
+}
+
+.review-filter.active {
+    color: #ce1c6a; /* 활성화된 필터의 색상 (빨간색) */
+}
+
+.divider {
+    color: #bbb;
+}
+.review-filter i {
+    font-size: 12px; /* 화살표 크기 */
+    margin-left: 3px;
+}
+
+.reviews {
+    margin-top: 10px;
+    border-radius: 10px;
+}
+
+.review {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.avatar {
     width: 50px;
     height: 50px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 50%;
+    object-fit: cover;
 }
 
-/* 무비 차트 컨트롤 스타일 설정 */
-.movie-chart-control {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.5);
+.username {
+    font-weight: bold;
+    color: #464646;
+}
+
+.text-muted {
+    color: #bbbbbb; /* 약간 밝은 회색 */
+}
+
+/* 푸터 스타일 */
+footer {
+    background-color: #ce1c6a;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.votes {
+    color: #bbb; /* 투표 수 색상 */
+    font-size: 16px; /* 투표 수 글자 크기 */
+    margin-top: 5px;
+}
+
+.right-image-container {
+    position: relative;
+    display: flex;
+    right: 80px; /* 페이지 오른쪽에서  마진 */
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* 세로로 이미지를 쌓기 위해 flex-direction 추가 */
+}
+
+.right-image {
+    position: relative; /* 부모 컨테이너에 상대적으로 위치 */
+    top: 0; /* 부모 컨테이너의 상단에 위치 */
+    width: auto;
+    max-height: 70vh; /* 이미지의 최대 높이를 화면의 70%로 제한 */
+    z-index: 1000; /* 다른 요소 위에 표시되도록 우선순위 설정 */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+    margin-bottom: 15px; /* 아래 이미지와의 간격 추가 */
+}
+
+
+.fixed-booking-button {
+    position: fixed;
+    bottom: 80px; /* 페이지 하단에서  위 */
+    right: 80px; /* 페이지 오른쪽에서  마진 */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 예매하기 버튼과 화살표 아이콘 사이의 간격 */
+    z-index: 1000; /* 다른 요소들 위에 표시되도록 설정 */
+}
+
+.booking-button {
+    background: linear-gradient(70deg, #ce1c6a, rgb(206, 28, 106), #ff6ca9, #e0a3cc); /* 호버 시 그라데이션 색상  */
     border: none;
-    width: 5%;
-    height: 100%;
+    color: white;
+    padding: 12px 25px;
+    border-radius: 50px; /* 둥근 버튼 모양 */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 그림자 효과 */
+    transition: background 0.3s ease;
 }
 
-.movie-chart-control.movie-chart-control-prev {
-    left: 0;
+
+.scroll-up {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1px solid #575757; /* 외곽 테두리 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
 }
 
-.movie-chart-control.movie-chart-control-next {
-    right: 0;
+.scroll-up i {
+    color: #575757;
+    font-size: 18px;
+}
+
+.scroll-up:hover i {
+    color: #232323; /* 호버 시 아이콘 색상 진하게 */
 }
 
 /* 이벤트 섹션 스타일 */
 .event-section {
+    padding: 100px 0; /* 무비 차트와 이벤트 사이 거리 추가 */
     padding: 80px 0; /* 무비 차트와 이벤트 사이 거리 추가 */
     background-color: #fff;
 }
 
-.event-section .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    height: 250px;
-}
-
-.event-section h2 {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
 /* 이벤트 아이템 스타일 */
-.event-item {
-    position: relative;
-    background: white;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.3s;
-}
-
 .event-item img {
     width: 100%;
     height: 250px;
@@ -341,109 +563,3 @@ movie-item p {
     margin-bottom: 10px;
 }
 
-.event-item h3 {
-    font-size: 1.2rem;
-    margin: 10px 0 5px;
-}
-
-.event-item p {
-    color: #777;
-    font-size: 0.9rem;
-    margin-bottom: 0;
-}
-
-/* 푸터 스타일 설정 */
-footer {
-    background-color: #f8f9fa;
-    padding: 20px 0;
-    height: 200px;
-
-}
-
-footer a {
-    text-decoration: none;
-    color: inherit;
-}
-
-footer a:hover {
-    color: #007bff;
-    text-decoration: underline;
-}
-
-.footer {
-    background-color: #ce1c6a;
-    color: white;
-    margin-top: 50px;
-    padding: 20px 0;
-    text-align: center;
-}
-
-.footer a {
-    color: white;
-    text-decoration: none;
-}
-
-.footer a:hover {
-    text-decoration: underline;
-}
-
-/* 상단 배너 스타일 설정 */
-.top-banner {
-    background-size: cover;
-    height: 80px;
-    margin: 0;
-}
-
-/* 탭 스타일 설정 */
-.tab-title {
-    cursor: pointer;
-    margin: 0 10px;
-    font-weight: bold;
-}
-
-.tab-title.active {
-    color: #ce1c6a;
-}
-
-/* 고객센터 및 공지사항 섹션 스타일 */
-.customer-service-section {
-    padding: 100px 0; /* 이벤트 사이 거리 추가 */
-    margin-top: 40px;
-}
-
-.notice-board h5,
-.customer-service h5 {
-    font-weight: bold;
-    margin-bottom: 15px;
-}
-
-.notice-board p,
-.customer-service p {
-    margin: 0 0 10px 0;
-}
-
-.notice-board .btn {
-    float: right;
-}
-
-.customer-service .btn {
-    flex-grow: 1;
-    margin-right: 5px;
-}
-
-.customer-service .btn:last-child {
-    margin-right: 0;
-}
-
-.customer-service {
-    text-align: left;
-}
-
-.notice-board a {
-    color: #000;
-    text-decoration: none;
-}
-
-.notice-board a:hover {
-    text-decoration: underline;
-}

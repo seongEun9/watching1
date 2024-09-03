@@ -71,3 +71,13 @@ function showButtons(element) {
 function hideButtons(element) {
     element.querySelector('.movie-buttons').style.display = 'none';
 }
+
+// 스크롤 js
+document.querySelector('.scroll-up').addEventListener('click', function() {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth' /* 부드럽게 스크롤 */
+    });
+});
+
+
