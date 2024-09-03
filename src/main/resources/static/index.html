@@ -90,7 +90,9 @@
 <div class="carousel slide" data-bs-ride="carousel" id="mainBanner">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img alt="인사이드아웃 2" class="d-block w-100" src="/img/인사이드아웃메인.jpg">
+            <div class="banner"> <!-- 이미지에 적용할 배너 컨테이너 추가 -->
+                <img alt="인사이드아웃 2" class="d-block" src="/img/인사이드아웃메인.jpg">
+            </div>
             <div class="carousel-caption d-none d-md-block">
                 <h1>인사이드아웃 2</h1>
                 <h5>새로운 감정들을 극장에서 만나보세요 !</h5>
@@ -99,6 +101,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- 무비 차트 섹션 -->
 <main class="container movie-chart">
@@ -290,7 +293,7 @@
 </section>
 
 <!-- 고객센터 및 공지사항 섹션 -->
-<section class="customer-service-section container mt-5">
+<section class="customer-service-section container">
     <div class="row">
         <div class="col-md-8">
             <div class="notice-board p-3 border rounded">

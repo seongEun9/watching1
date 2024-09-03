@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>극장 목록 페이지</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/chart.css" rel="stylesheet">
+
+    <!-- 폰트 설정 -->
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i"
+            rel="stylesheet"
+    />
+</head>
+<body>
+
+<!-- 최상단에 위치한 배경 이미지, 높이 80px -->
+<div class="top-banner">
+    <img alt="가로 광고바"  class="d-block w-100" src="img/광고바_가로.jpg">
+</div>
+
+<!-- 상단 메뉴바 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand"  href="/">WaTching</a>
+        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <!-- 드롭다운 메뉴 추가 -->
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="moviesDropdown" role="button">
+                        영화
+                    </a>
+                    <ul aria-labelledby="moviesDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 상영작</a></li>
+                        <li><a class="dropdown-item" href="#">개봉 예정작</a></li>
+                        <li><a class="dropdown-item" href="#">특별 상영작</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="theatersDropdown" role="button">
+                        극장
+                    </a>
+                    <ul aria-labelledby="theatersDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">전체 극장</a></li>
+                        <li><a class="dropdown-item" href="#">특별관</a></li>
+                        <li><a class="dropdown-item" href="#">상영 시간표</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="reservationDropdown" role="button">
+                        예매
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="eventDropdown" role="button">
+                        이벤트
+                    </a>
+                    <ul aria-labelledby="eventDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 진행 이벤트</a></li>
+                        <li><a class="dropdown-item" href="#">이벤트 응모/당첨자</a></li>
+                    </ul>
+                </li>
+                <!-- 더 많은 메뉴 아이템 추가 -->
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="search.html">검색</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+                <li class="nav-item"><a class="nav-link" href="mypage.html">마이페이지</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- 여기까지는 고정 -->
+
+<div class="container5">
+<!-- 극장 선택 및 즐겨찾기 영역 -->
+<div class="theater-select-container5">
+    <div class="favorite-theaters5">
+        <h3>자주 가는 CGV</h3>
+        <div class="favorite-list5">
+            <div class="favorite-theater5">
+                <span>1</span>
+                <span>2</span>
+                <span>3</span>
+                <span>4</span>
+                <span>5</span>
+                <button class="add-favorite5">+</button>
+            </div>
+        </div>
+    </div>
+    <div class="region-select5">
+        <ul class="region-tabs5">
+            <li onclick="selectRegion5('seoul')">서울</li>
+            <li onclick="selectRegion5('gyeonggi')">경기</li>
+            <li onclick="selectRegion5('incheon')">인천</li>
+            <li onclick="selectRegion5('gangwon')">강원</li>
+            <li onclick="selectRegion5('daejeon')">대전/충청</li>
+            <li onclick="selectRegion5('daegu')">대구</li>
+            <li onclick="selectRegion5('busan')">부산/울산</li>
+            <li onclick="selectRegion5('gyeongsang')">경상</li>
+            <li onclick="selectRegion5('gwangju')">광주/전라/제주</li>
+        </ul>
+        <div id="theaterList5" class="theater-list5">
+            <!-- 극장 목록이 여기 표시됩니다 -->
+            <span>지역을 선택해 주세요.</span>
+        </div>
+    </div>
+</div>
+
+    <!-- 극장정보 출력 -->
+    <div class="theater-info-container6 position-relative text-center">
+        <h2>극장 정보</h2>
+        <div class="service-desk6 mx-auto">
+            <img alt="Service Desk Image" class="img-fluid" src="/img/커여미 4.jpg">
+            <div class="location-info6 position-absolute bottom-0 start-0 text-white p-3">
+                <p>서울특별시 강남구 역삼동 814-6 스타플렉스<br>
+                    서울특별시 강남구 강남대로 438 (역삼동)</p>
+                <p>1544-1122<br>
+                    6관 / 874석</p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- 상영 시간표 영역 -->
+<div class="schedule-container5">
+        <h3>상영시간표</h3>
+    <div class="date-select5">
+        <button class="arrow-button5" onclick="prevDate5()">&larr;</button>
+        <ul class="date-tabs5">
+            <li>09월 <span>03</span> 화</li>
+            <li>09월 <span>04</span> 수</li>
+            <li>09월 <span>05</span> 목</li>
+            <li>09월 <span>06</span> 금</li>
+            <li>09월 <span>07</span> 토</li>
+            <li>09월 <span>08</span> 일</li>
+            <li>09월 <span>09</span> 월</li>
+            <li>09월 <span>10</span> 화</li>
+        </ul>
+        <button class="arrow-button5" onclick="nextDate5()">&rarr;</button>
+    </div>
+    <div class="showtime-list5">
+        <div class="showtime-item5">
+            <h4>트위스터스 <span class="showing5">상영중</span></h4>
+            <p>2D | 6관 10층 (LASER) | 총 124석</p>
+            <div class="times5">
+                <span>18:45 <span class="available-seats5">106석</span></span>
+                <span>24:10 <span class="available-seats5">121석</span></span>
+            </div>
+        </div>
+        <div class="showtime-item5">
+            <h4>이미지너리 <span class="showing5">상영중</span></h4>
+            <p>2D | 5관 10층 (LASER) | 총 172석</p>
+            <div class="times5">
+                <span>21:40 <span class="available-seats5">159석</span></span>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script>
+    // 극장 목록 데이터 (예시)
+    const theaters5 = {
+        seoul: ['CGV강남', 'CGV강변', 'CGV건대입구', 'CGV구로'],
+        gyeonggi: ['CGV수원', 'CGV성남', 'CGV평택', 'CGV부천'],
+        incheon: ['CGV인천', 'CGV부평', 'CGV송도'],
+        gangwon: ['CGV춘천', 'CGV원주'],
+        daejeon: ['CGV대전', 'CGV천안', 'CGV청주'],
+        daegu: ['CGV대구', 'CGV칠곡', 'CGV동성로'],
+        busan: ['CGV부산', 'CGV해운대', 'CGV사상'],
+        gyeongsang: ['CGV포항', 'CGV경주', 'CGV창원'],
+        gwangju: ['CGV광주', 'CGV전주', 'CGV제주']
+    };
+
+    function selectRegion5(region) {
+        const theaterList5 = document.getElementById('theaterList5');
+        theaterList5.innerHTML = theaters5[region].map(theater => `<span>${theater}</span>`).join(' | ');
+
+        // 선택된 지역 스타일 업데이트
+        document.querySelectorAll('.region-tabs5 li').forEach(li => {
+            li.style.backgroundColor = '';
+            li.style.color = '';
+            li.style.border = '';
+        });
+        const selectedTab5 = document.querySelector(`.region-tabs5 li[onclick="selectRegion5('${region}')"]`);
+        selectedTab5.style.backgroundColor = '#444';
+        selectedTab5.style.color = '#fff';
+        selectedTab5.style.border = '1px solid #fff';
+    }
+
+    function prevDate5() {
+        // 이전 날짜로 이동하는 로직 추가
+    }
+
+    function nextDate5() {
+        // 다음 날짜로 이동하는 로직 추가
+    }
+</script>
+
+<footer class="footer">
+    <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
+    <p>고객센터: 1544-1122</p>
+
+    <div class="fixed-booking-button">
+        <button class="booking-button">예매하기</button>
+        <div class="scroll-up">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

@@ -81,7 +81,15 @@
 </nav>
 
 <!-- 좌석 선택 상단 정보 및 다시하기 버튼 -->
-<div class="container mt-4">
+<div class="all-mm200">
+<div class="container4">
+    <!-- 왼쪽 사이드바 광고 영역 -->
+    <div class="sidebar4">
+        <div class="ad4">
+            <img src="img/세로이벤트1.jpg" alt="Ad" class="ad-img4">
+        </div>
+    </div>
+    <div class="main4">
     <h2 class="text-center">인원 / 좌석</h2>
     <div class="row justify-content-between">
         <div class="col-md-8">
@@ -96,7 +104,7 @@
             <button class="btn btn-outline-secondary" onclick="resetSeats()">다시하기</button>
         </div>
     </div>
-</div>
+
 
 <!-- 좌석 배치 -->
 <div class="container mt-3">
@@ -105,27 +113,27 @@
     </div>
     <div class="seat-selection d-flex justify-content-center">
         <!-- 좌석 선택 표 -->
-        <table class="table table-bordered text-center seat-table">
+        <table class="seat-table">
             <tbody>
             <tr>
-                <td class="available">A1</td>
-                <td class="available">A2</td>
+                <td class="disabled"></td>
+                <td class="disabled"></td>
                 <td class="available">A3</td>
                 <td class="available">A4</td>
                 <td class="available">A5</td>
                 <td class="available">A6</td>
-                <td class="available">A7</td>
-                <td class="available">A8</td>
+                <td class="disabled"></td>
+                <td class="disabled"></td>
             </tr>
             <tr>
-                <td class="available">B1</td>
+                <td class="disabled"></td>
                 <td class="available">B2</td>
                 <td class="available">B3</td>
                 <td class="available">B4</td>
                 <td class="available">B5</td>
                 <td class="available">B6</td>
                 <td class="available">B7</td>
-                <td class="available">B8</td>
+                <td class="disabled"></td>
             </tr>
             <tr>
                 <td class="available">C1</td>
@@ -136,6 +144,16 @@
                 <td class="available">C6</td>
                 <td class="available">C7</td>
                 <td class="available">C8</td>
+            </tr>
+            <tr>
+                <td class="available">D1</td>
+                <td class="available">D2</td>
+                <td class="available">D3</td>
+                <td class="available">D4</td>
+                <td class="available">D5</td>
+                <td class="available">D6</td>
+                <td class="available">D7</td>
+                <td class="available">D8</td>
             </tr>
             <!-- 더 많은 좌석 행을 추가할 수 있음 -->
             </tbody>
@@ -163,6 +181,19 @@
         </div>
     </div>
 </div>
+</div>
+    <!-- 오른쪽 사이드바 광고 영역 -->
+    <div class="sidebar4">
+        <div class="ad4">
+            <img src="img/세로이벤트1.jpg" alt="Ad" class="ad-img4">
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
 
 <script>
     // 좌석 선택 스크립트
@@ -185,30 +216,40 @@
         });
     }
 </script>
-
 <style>
-    .seat-selection td {
+    .seat-table {
+        border-spacing: 3px;
+    }
+
+    .seat-table td {
         width: 40px;
         height: 40px;
-        cursor: pointer;
-        border: 1px solid #ddd;
         text-align: center;
         vertical-align: middle;
+        cursor: pointer;
     }
 
-    .seat-selection td.available {
-        background-color: #fff;
+    .seat-table .available {
+        background-color: #ddd;
+        border-radius: 5px;
     }
 
-    .seat-selection td.selected {
+    .seat-table .selected {
         background-color: #d9534f;
         color: #fff;
+        border-radius: 5px;
+    }
+
+    .seat-table .disabled {
+        background-color: #f1f1f1;
+        cursor: not-allowed;
     }
 
     .screen {
         background-color: #f1f1f1;
         padding: 10px;
         border-radius: 5px;
+        margin-bottom: 20px;
     }
 
     .movie-info {
@@ -238,8 +279,6 @@
 <footer class="footer">
     <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
     <p>고객센터: 1544-1122</p>
-
-
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
