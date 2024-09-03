@@ -18,7 +18,6 @@
     />
 </head>
 <body>
-
 <!-- 최상단에 위치한 배경 이미지, 높이 80px -->
 <div class="top-banner">
     <img alt="가로 광고바" class="d-block w-100" src="img/광고바_가로.jpg">
@@ -85,166 +84,55 @@
 </nav>
 <!-- 여기까지는 고정 -->
 
-<!-- Main Content -->
+
+
+<!-- 영화 목록 -->
 <div class="container my-4">
     <div class="row">
-        <div class="col-md-8 mx-auto">
-            <div class="movie-info text-center">
-                <div class="poster-section mx-auto">
-                    <img alt="인사이드아웃2" class="poster img-fluid" src="/img/인사이드아웃2.jpg">
-                    <div class="rating-section mt-3">
-                        <div class="star-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                        </div>
-                        <div class="votes">
-                            1,029 Votes
-                        </div>
-                    </div>
-                </div>
-
-                <div class="details-section mt-4">
-                    <h1 class="movie-title">인사이드아웃2</h1>
-                    <span class="rating badge bg-secondary">현재상영중</span>
-                    <h2 class="movie-subtitle text-muted">Inside Out 2</h2>
-                    <div class="rating-section my-3">
-                        <span class="rating badge bg-secondary">D-10</span>
-                        <span class="reservation-rate badge bg-info">예매율 27.3%</span>
-                        <span class="audience-rating badge bg-success">ALL</span>
-                    </div>
-                    <div class="movie-details text-start mx-auto" style="max-width: 500px;">
-                        <p><strong>감독:</strong> 켈시 만</p>
-                        <p><strong>배우:</strong> 에이미 포엘러 , 마야 호크 , 루이스 블랙 , 필리스 스미스 , 토니 헤일</p>
-                        <p><strong>장르:</strong> 애니메이션</p>
-                        <p><strong>기본 정보:</strong>전체관람가, 96분, 미국</p>
-                        <p><strong>개봉:</strong> 2024.06.12</p>
-                    </div>
-                    <div class="buttons-section my-3">
-                        <button class="like-button btn btn-outline-danger">♡ 좋아요</button>
-                        <button class="ticket-button btn btn-primary">예매하기</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tabs-section mt-5">
-                <ul class="nav nav-tabs justify-content-center">
-                    <li class="nav-item"><a class="nav-link active" href="#">주요정보</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">감독/출연</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">트레일러</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">스틸컷</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">평점/리뷰</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">상영시간표</a></li>
-                </ul>
-            </div>
-
-            <div class="synopsis-section mt-4 text-start mx-auto" style="max-width: 600px;">
-                <p>
-                    디즈니·픽사의 대표작 -인사이드 아웃-
-                    새로운 감정과 함께 돌아오다!
-
-                    13살이 된 라일리의 행복을 위해
-                    매일 바쁘게 머릿속 감정 컨트롤 본부를 운영하는
-                    ‘기쁨’, ‘슬픔’, ‘버럭’, ‘까칠’, ‘소심’.
-
-                    그러던 어느 날,
-                    낯선 감정인 ‘불안’, ‘당황’, ‘따분’, ‘부럽’이가 본부에 등장하고,
-                    언제나 최악의 상황을 대비하며
-                    제멋대로인 ‘불안’이와 기존 감정들은 계속 충돌한다.
-
-                    결국 새로운 감정들에 의해 본부에서 쫓겨나게 된 기존 감정들은
-                    다시 본부로 돌아가기 위해 위험천만한 모험을 시작하는데…
-
-                    2024년, 전 세계를 공감으로 물들인 유쾌한 상상이 다시 시작된다!
-                </p>
-            </div>
-
-            <!-- Still Cut Section -->
-            <div class="still-cut-section mt-5">
-                <div class="still-cut-header d-flex justify-content-between align-items-center">
-                    <span>스틸컷 1/21건</span>
-                    <button class="add-button btn btn-sm btn-outline-secondary">+</button>
-                </div>
-                <div class="still-cut-gallery d-flex justify-content-center align-items-center mt-3">
-                    <button class="gallery-nav gallery-prev btn btn-outline-secondary btn-sm">❮</button>
-                    <img alt="스틸컷 이미지1" class="stillcut-image mx-3 img-fluid" src="/img/인사이드아웃_이벤트.jpg" style="max-width: 400px;">
-                    <img alt="스틸컷 이미지2" class="stillcut-image mx-3 img-fluid" src="/img/인사이드아웃메인.jpg" style="max-width: 400px;">
-                    <button class="gallery-nav gallery-next btn btn-outline-secondary btn-sm">❯</button>
-                </div>
-            </div>
-
-            <!-- Charts Section -->
-            <div class="charts-section mt-5">
-                <div class="row">
-                    <div class="col-md-6">
-                        <canvas id="genderChart"></canvas>
-                    </div>
-                    <div class="col-md-6">
-                        <canvas id="ageChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Review Section -->
-            <div class="review-section mt-5">
-                <div class="review-header d-flex justify-content-between align-items-center">
-                    <h3>평점</h3>
-                    <div class="review-header d-flex align-items-center">
-                        <span class="review-filter active">최신순 <i class="fas fa-caret-down"></i></span>
-                        <span class="divider">|</span>
-                        <span class="review-filter">추천순</span>
-                    </div>
-                </div>
-                <div class="reviews mt-3">
-                    <div class="review p-3 rounded mb-3">
-                        <div class="d-flex">
-                            <img alt="User Avatar" class="avatar" src="/img/커여미 1.jpg">
-                            <div class="ms-3">
-                                <p class="username mb-1">lee 지영 - <span class="text-muted">2024.09.12</span></p>
-                                <p>다시봐도 감동적이네요 ~ 역시 디즈니 !!</p>
-                                <p>좋아요 : 5</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="review p-3 rounded mb-3">
-                        <div class="d-flex">
-                            <img alt="User Avatar" class="avatar" src="/img/커여미 2.jpg">
-                            <div class="ms-3">
-                                <p class="username mb-1">park 성은 - <span class="text-muted">20 Hour ago</span></p>
-                                <p>마음이 따뜻해지는 영화에요 ~  ^^</p>
-                                <p>좋아요 : 2</p>
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="movie-item">
+                        <div class="movie-rank">No.1</div>
+                        <img src="/img/인사이드아웃2.jpg" alt="Movie 1">
+                        <div class="movie-details">
+                            <div class="movie-title">인사이드아웃2</div>
+                            <div class="movie-info">예매율 27.3% | 99% 추천 | 2024.09.13 개봉 | D-10</div>
+                            <div class="movie-buttons">
+                                <button class="btn-booking">예매하기</button>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <!-- Review Input -->
-                <div class="review-input mt-4">
-                    <h4 class="text-uppercase text-light">내 평점 작성</h4>
-                    <textarea class="form-control mb-2" placeholder="Your Comment" rows="3"></textarea>
-                    <button class="btn btn-danger text-uppercase">등록</button>
+                <div class="col-md-3">
+                    <div class="movie-item">
+                        <div class="movie-rank">No.2</div>
+                        <img src="path-to-image2.jpg" alt="Movie 2">
+                        <div class="movie-details">
+                            <div class="movie-title">임영웅 ! 아임 히어로 더 스타...</div>
+                            <div class="movie-info">예매율 19.8% | 97% 추천 | 2024.08.28 개봉</div>
+                            <div class="movie-buttons">
+                                <button class="btn-booking">예매하기</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <!-- 추가 영화 항목들 -->
+                <!-- 이 부분을 복사하여 더 많은 영화 항목을 추가하세요 -->
             </div>
         </div>
 
-    <!-- 오른쪽 중앙에 배치할 이미지 -->
-    <div class="col-md-2 right-image-container">
-        <img alt="세로광고바1" class="right-image" src="/img/세로이벤트1.jpg">
-        <img alt="세로광고바1" class="right-image" src="/img/세로이벤트1.jpg">
+        <!-- 오른쪽 사이드바 광고 -->
+        <div class="col-md-2">
+            <div class="right-sidebar-ad">
+                <img src="path-to-ad1.jpg" alt="Ad1" class="img-fluid">
+            </div>
+            <div class="right-sidebar-ad mt-4">
+                <img src="path-to-ad2.jpg" alt="Ad2" class="img-fluid">
+            </div>
+        </div>
     </div>
 </div>
-</div>
-
-
-<div class="fixed-booking-button">
-    <button class="booking-button">예매하기</button>
-    <div class="scroll-up">
-        <i class="fas fa-arrow-up"></i>
-    </div>
-</div>
-
 
 <footer class="footer">
     <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
