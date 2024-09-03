@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마이페이지</title>
+    <title>예매내역<마이페이지></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
@@ -121,8 +121,66 @@
         }
 
         .content-box p {
-            margin: 0;
+            margin: 10px 0;
             color: #555;
+            line-height: 1.6;
+        }
+
+        .content-box h4 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #FF2C81;
+            padding-bottom: 5px;
+        }
+
+        .movie-card {
+            width: 30%;
+            text-align: center;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin-right: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .movie-card img {
+            border-radius: 8px;
+            margin-bottom: 10px;
+            max-width: 100%;
+        }
+
+        .movie-card p {
+            margin: 5px 0;
+            color: #333;
+        }
+
+        .movie-card p.text-danger {
+            font-weight: bold;
+            color: #FF2C81;
+        }
+
+        .table-bordered {
+            border: 1px solid #ccc;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .table thead th {
+            background-color: #f9f9f9;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .text-muted {
+            color: #777 !important;
         }
 
         .fixed-button {
@@ -145,12 +203,13 @@
             width: 20px;
             height: 20px;
         }
+
     </style>
 </head>
 <body>
 <!-- 최상단에 위치한 배경 이미지, 높이 80px -->
 <div class="top-banner">
-    <img alt="가로 광고바"  class="d-block w-100" src="img/광고바_가로.jpg">
+    <img alt="가로 광고바" class="d-block w-100" src="img/광고바_가로.jpg">
 </div>
 
 <!-- 상단 메뉴바 -->
@@ -227,8 +286,8 @@
     <div class="d-flex">
         <!-- 사이드바 -->
         <div class="sidebar">
-            <a href="mypage.html" class="active">마이페이지 홈</a>
-            <a href="mypage2.html">예매 내역</a>
+            <a href="mypage.html">마이페이지 홈</a>
+            <a href="mypage2.html" class="active">예매 내역</a>
             <a href="mypage3.html">쿠폰/포인트</a>
             <a href="mypage4.html">회원정보 수정</a>
             <a href="mypage5.html">1:1 문의</a>
@@ -236,40 +295,102 @@
 
         <!-- 콘텐츠 영역 -->
         <div class="content-area">
-            <h3>예매 내역</h3>
+            <h3>나의 예매내역</h3>
+            <p class="text-muted">지난 1개월까지의 예매내역을 확인하실 수 있습니다.</p>
+            <p class="text-danger">현장에서 발권하실 때 꼭 <strong>예매번호</strong>를 확인하세요.</p>
+
+            <!-- 예매내역이 있을 경우 표시할 영역 -->
             <div class="content-box">
                 <p>고객님의 최근 예매내역이 존재하지 않습니다.</p>
             </div>
 
-            <h3>쿠폰/포인트</h3>
+            <!-- TODAY BEST 무비차트 -->
             <div class="content-box">
-                <p>사용 가능한 쿠폰: 1개</p>
-                <p>사용 가능한 포인트: 1,371점</p>
+                <h4>TODAY BEST 무비차트</h4>
+                <div class="d-flex justify-content-between">
+                    <div class="movie-card">
+                        <img src="img/movie1.jpg" alt="베테랑2" class="img-fluid">
+                        <p>베테랑2</p>
+                        <p>예매율: 24.7% | 평점: 99%</p>
+                        <p>개봉일: 2024.09.13</p>
+                        <p class="text-danger">D-10</p>
+                    </div>
+                    <div class="movie-card">
+                        <img src="img/movie2.jpg" alt="영웅" class="img-fluid">
+                        <p>영웅 | 아임 히어로 더 스탠딩</p>
+                        <p>예매율: 17.3% | 평점: 97%</p>
+                        <p>개봉일: 2024.08.28</p>
+                    </div>
+                    <div class="movie-card">
+                        <img src="img/movie3.jpg" alt="안녕, 할부지" class="img-fluid">
+                        <p>안녕, 할부지</p>
+                        <p>예매율: 12.0% | 평점: 97%</p>
+                        <p>개봉일: 2024.09.04</p>
+                        <p class="text-danger">D-1</p>
+                    </div>
+                </div>
             </div>
 
-            <h3>내가 본 영화</h3>
+            <!-- MY 취소내역 -->
             <div class="content-box">
-                <p>관람한 영화 기록이 없습니다.</p>
+                <h4>MY 취소내역</h4>
+                <p class="text-muted">상영일 기준 지난 7일 동안의 취소내역입니다.</p>
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>관람 영화/매점</th>
+                        <th>관람WaTching</th>
+                        <th>관람 일시</th>
+                        <th>취소일</th>
+                        <th>결제취소 금액</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td colspan="5">고객님의 최근 취소내역이 존재하지 않습니다.</td>
+                    </tr>
+                    </tbody>
+                </table>
             </div>
 
-            <h3>내가 쓴 평점</h3>
+            <!-- 이용 안내 -->
             <div class="content-box">
-                <p>작성한 평점이 없습니다.</p>
+                <h4>이용 안내</h4>
+                <p>예매 변경은 불가능하며, 취소 후 재 예매를 하셔야 합니다.</p>
+                <p>영수증은 상영 시간 전까지 My WaTching에서 출력하실 수 있습니다. 단, 신용카드로 예매하신 경우만 가능합니다.</p>
+                <p>상영 시간 이후 관람하신 영화의 영수증 출력을 원하실 경우, 1544-1122로 문의 주시기 바랍니다.</p>
+                <p>취소나 내역이 나타나지 않거나 궁금하신 사항이 있으시면, 고객센터로 문의해 주시기 바랍니다.</p>
+            </div>
+
+            <!-- 티켓 교환방법 -->
+            <div class="content-box">
+                <h4>티켓 교환방법</h4>
+                <p><strong>티켓판매기(ATM)에서 발권하실 경우</strong></p>
+                <p>예매번호 또는 고객번호를 입력하시면 티켓을 편하게 발권하실 수 있습니다.</p>
+                <p><strong>매표소에서 발권하실 경우</strong></p>
+                <p>티켓판매기에서 발권이 어려운 경우, 매표소에서 신분증을 제시하시면 발권하실 수 있습니다.</p>
+            </div>
+
+            <!-- 예매 취소 안내 -->
+            <div class="content-box">
+                <h4>예매 취소 안내</h4>
+                <p><strong>신용카드:</strong> 결제 후 7일 이내 취소 가능. 단, 일부 행사인 경우 취소 불가.</p>
+                <p><strong>체크카드:</strong> 결제 후 7일 이내 취소 가능. 단, 일부 행사인 경우 취소 불가.</p>
+                <p><strong>휴대폰 결제:</strong> 결제 후 7일 이내 취소 가능. 단, 일부 행사인 경우 취소 불가.</p>
             </div>
         </div>
     </div>
 </div>
 
+    <footer class="footer">
+        <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
+        <p>고객센터: 1544-1122</p>
+    </footer>
+    <!-- 하단 고정 버튼 -->
+    <a href="#" class="fixed-button">예매하기</a>
 
-<footer class="footer">
-    <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
-    <p>고객센터: 1544-1122</p>
-</footer>
-<!-- 하단 고정 버튼 -->
-<a href="#" class="fixed-button">예매하기</a>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="/js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 </html>
