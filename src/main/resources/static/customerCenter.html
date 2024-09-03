@@ -163,6 +163,47 @@
             border-radius: 8px; /* 모서리를 둥글게 설정 */
         }
 
+        /* 새로운 스타일 추가 */
+        .sidebar {
+            flex: 0 0 250px;
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar a {
+            display: block;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: #fff;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #333;
+            border: 1px solid #ccc;
+        }
+
+        .sidebar a:hover {
+            background-color: #ce1c6a;
+            color: #fff;
+        }
+
+        .promo-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-top: auto; /* 이미지를 사이드바의 하단에 배치 */
+            border: 1px solid #ccc;
+        }
+
+        .content-area {
+            flex: 1;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            margin-left: 20px;
+            border: 1px solid #ccc;
+        }
     </style>
 </head>
 <body>
@@ -233,54 +274,63 @@
 </nav>
 <!-- 고객센터 시작 -->
 <div class="container">
-    <div class="main-section">
-        <div class="search-section">
-            <input type="text" class="search-input" placeholder="검색어를 입력해주세요.">
-            <button class="search-button">검색</button>
+    <div class="d-flex">
+        <!-- 고객센터 안 사이드바 -->
+        <div class="sidebar">
+            <a href="#">고객센터 메인</a>
+            <a href="#">자주 찾는 질문</a>
+            <a href="#">공지/뉴스</a>
+            <a href="#">이메일 문의</a>
+            <a href="#">단체/대관 문의</a>
+            <!-- 프로모션 이미지 -->
+            <img class="promo-image" src="/img/트렌스포머.png" alt="프로모션 이미지">
         </div>
-        <div class="info-boxes">
-            <div class="info-box">
-                <p>상담톡 이용</p>
-                <button class="contact-button">문의하기</button>
-            </div>
-            <div class="info-box">
-                <p>이메일 문의</p>
-                <button class="contact-button">문의하기</button>
-            </div>
-            <div class="info-box">
-                <p>내 상담 내역 확인</p>
-                <button class="contact-button">문의내역 조회</button>
-            </div>
-        </div>
-    </div>
 
-    <div class="services-section">
-        <div class="service">
-            <p>아이디/비밀번호 찾기</p>
-        </div>
-        <div class="service">
-            <p>예매/취소내역 확인</p>
-        </div>
-        <div class="service">
-            <p>비회원 예매/취소</p>
-        </div>
-        <div class="service">
-            <p>멤버십포인트 사용안내</p>
-        </div>
-        <div class="service">
-            <p>관람권/할인쿠폰 등록</p>
-        </div>
-    </div>
+        <!-- 콘텐츠 영역 -->
+        <div class="content-area">
+            <div class="main-section">
+                <div class="search-section">
+                    <input type="text" class="search-input" placeholder="자주 찾는 검색어를 입력해주세요.">
+                    <button class="search-button">검색</button>
+                </div>
+                <div class="info-boxes">
+                    <div class="info-box">
+                        <p>이메일 문의</p>
+                        <button class="contact-button">문의하기</button>
+                    </div>
+                    <div class="info-box">
+                        <p>내 상담 내역 확인</p>
+                        <button class="contact-button">문의내역 조회</button>
+                    </div>
+                </div>
+            </div>
 
-    <div class="news-section">
-        <p class="news-title">공지/뉴스</p>
-        <ul class="news-list">
-            <li>[극장] CGV [월드투어] 무대인사 화제! </li>
-            <li>[기타] CGV 헤페머니상품권 사용중지 안내</li>
-            <li>[CGV] 무대인사 예매취소 정책 변경 안내</li>
-            <li>[시스템점검] 2024년 9월 시스템 점검</li>
-            <li>[시스템점검] 시스템 점검 관련 안내</li>
-        </ul>
+            <div class="services-section">
+                <div class="service">
+                    <p>예매/취소내역 확인</p>
+                </div>
+                <div class="service">
+                    <p>비회원 예매/취소</p>
+                </div>
+                <div class="service">
+                    <p>멤버십포인트 사용안내</p>
+                </div>
+                <div class="service">
+                    <p>관람권/할인쿠폰 등록</p>
+                </div>
+            </div>
+
+            <div class="news-section">
+                <p class="news-title">공지/뉴스</p>
+                <ul class="news-list">
+                    <li>[극장] CGV [월드투어] 무대인사 화제! </li>
+                    <li>[기타] CGV 헤페머니상품권 사용중지 안내</li>
+                    <li>[CGV] 무대인사 예매취소 정책 변경 안내</li>
+                    <li>[시스템점검] 2024년 9월 시스템 점검</li>
+                    <li>[시스템점검] 시스템 점검 관련 안내</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <div class="promo-section">
@@ -317,7 +367,6 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="/js/main.js"></script>
-
 
 </body>
 </html>
