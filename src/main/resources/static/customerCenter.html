@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화예매 고객센터</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+
+    <!-- 폰트 설정 -->
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i"
+            rel="stylesheet"
+    />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        .main-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .search-section {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px; /* 모서리를 둥글게 설정 */
+        }
+
+        .search-input {
+            width: 80%;
+            padding: 10px;
+            border: none;
+            outline: none;
+        }
+
+        .search-button {
+            width: 20%;
+            padding: 10px;
+            background-color: #ce1c6a;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px; /* 모서리를 둥글게 설정 */
+        }
+
+        .info-boxes {
+            flex: 2;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .info-box {
+            flex: 1;
+            text-align: center;
+            border: 1px solid #ccc;
+            margin: 0 10px;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px; /* 모서리를 둥글게 설정 */
+        }
+
+        .contact-button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px; /* 모서리를 둥글게 설정 */
+        }
+
+        .services-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .service {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            margin: 0 10px;
+            border-radius: 8px; /* 모서리를 둥글게 설정 */
+        }
+
+        .news-section {
+            margin-bottom: 20px;
+        }
+
+        .news-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .news-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .news-list li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .promo-section {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .promo-box {
+            flex: 1;
+            text-align: center;
+            padding: 30px;
+            background-color: #f9f9f9;
+            margin: 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* 모서리를 둥글게 설정 */
+        }
+
+        .footer-section {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .footer-box {
+            flex: 1;
+            text-align: center;
+            padding: 20px;
+            background-color: #f9f9f9;
+            margin: 0 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px; /* 모서리를 둥글게 설정 */
+        }
+
+        .footer-button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 8px; /* 모서리를 둥글게 설정 */
+        }
+
+    </style>
+</head>
+<body>
+
+<!-- 최상단에 위치한 배경 이미지, 높이 80px -->
+<div class="top-banner">
+    <img alt="가로 광고바"  class="d-block w-100" src="img/광고바_가로.jpg">
+</div>
+
+<!-- 상단 메뉴바 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <p class="navbar-brand">WaTching</p>
+        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <!-- 드롭다운 메뉴 추가 -->
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="moviesDropdown" role="button">
+                        영화
+                    </a>
+                    <ul aria-labelledby="moviesDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 상영작</a></li>
+                        <li><a class="dropdown-item" href="#">개봉 예정작</a></li>
+                        <li><a class="dropdown-item" href="#">특별 상영작</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="theatersDropdown" role="button">
+                        극장
+                    </a>
+                    <ul aria-labelledby="theatersDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">전체 극장</a></li>
+                        <li><a class="dropdown-item" href="#">특별관</a></li>
+                        <li><a class="dropdown-item" href="#">상영 시간표</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="reservationDropdown" role="button">
+                        예매
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="eventDropdown" role="button">
+                        이벤트
+                    </a>
+                    <ul aria-labelledby="eventDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 진행 이벤트</a></li>
+                        <li><a class="dropdown-item" href="#">이벤트 응모/당첨자</a></li>
+                    </ul>
+                </li>
+                <!-- 더 많은 메뉴 아이템 추가 -->
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="search.html">검색</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+                <li class="nav-item"><a class="nav-link" href="mypage.html">마이페이지</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- 고객센터 시작 -->
+<div class="container">
+    <div class="main-section">
+        <div class="search-section">
+            <input type="text" class="search-input" placeholder="검색어를 입력해주세요.">
+            <button class="search-button">검색</button>
+        </div>
+        <div class="info-boxes">
+            <div class="info-box">
+                <p>상담톡 이용</p>
+                <button class="contact-button">문의하기</button>
+            </div>
+            <div class="info-box">
+                <p>이메일 문의</p>
+                <button class="contact-button">문의하기</button>
+            </div>
+            <div class="info-box">
+                <p>내 상담 내역 확인</p>
+                <button class="contact-button">문의내역 조회</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="services-section">
+        <div class="service">
+            <p>아이디/비밀번호 찾기</p>
+        </div>
+        <div class="service">
+            <p>예매/취소내역 확인</p>
+        </div>
+        <div class="service">
+            <p>비회원 예매/취소</p>
+        </div>
+        <div class="service">
+            <p>멤버십포인트 사용안내</p>
+        </div>
+        <div class="service">
+            <p>관람권/할인쿠폰 등록</p>
+        </div>
+    </div>
+
+    <div class="news-section">
+        <p class="news-title">공지/뉴스</p>
+        <ul class="news-list">
+            <li>[극장] CGV [월드투어] 무대인사 화제! </li>
+            <li>[기타] CGV 헤페머니상품권 사용중지 안내</li>
+            <li>[CGV] 무대인사 예매취소 정책 변경 안내</li>
+            <li>[시스템점검] 2024년 9월 시스템 점검</li>
+            <li>[시스템점검] 시스템 점검 관련 안내</li>
+        </ul>
+    </div>
+
+    <div class="promo-section">
+        <div class="promo-box">
+            <p>CGV PREVIEW</p>
+        </div>
+        <div class="promo-box">
+            <p>DISCOUNT INFO</p>
+        </div>
+    </div>
+
+    <div class="footer-section">
+        <div class="footer-box">
+            <p>대관/단체 서비스</p>
+            <button class="footer-button">바로가기</button>
+        </div>
+        <div class="footer-box">
+            <p>VIP 안내</p>
+            <button class="footer-button">바로가기</button>
+        </div>
+        <div class="footer-box">
+            <p>VIP 고객센터</p>
+            <button class="footer-button">바로가기</button>
+        </div>
+    </div>
+</div>
+
+
+<footer class="footer">
+    <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
+    <p>고객센터: 1544-1122</p>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+</body>
+</html>
