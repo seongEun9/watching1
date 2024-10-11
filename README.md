@@ -50,33 +50,33 @@
 # 페이지 소개
 
 ## ✔️ 메인 페이지
-![메인1](https://github.com/user-attachments/assets/0afba185-ebba-42a1-b50d-9a56230000be)
+![메인1](https://github.com/user-attachments/assets/0767f58c-f79d-48fa-b57f-e5c54fac1a4f)
 - 메인 로고를 이용하여 홈 화면으로 이동 가능합니다.
 - 무비 차트/ 상영예정작을 순위별로 확인 가능하며, 상세보기 및 예매 페이지로 이동 가능합니다. 
 - 모든 페이지에서 고정 된 화살표 버튼을 통해 페이지 드래그 가능합니다.
 
 
 ## ✔️ 영화 상세 페이지
-![영화상세](https://github.com/user-attachments/assets/8357500e-bae6-46e6-9606-38c4baaee361)
+![영화상세](https://github.com/user-attachments/assets/364a3474-8647-4bb7-bbb6-ee907051f347)
 - 선택된 영화의 상세 정보를 조회 및 코멘트 남길 수 있습니다. 
 
 
 ## ✔️ 예매 페이지
 ### 영화 선택
-![영화예매](https://github.com/user-attachments/assets/ae67b0aa-02ed-4d30-b676-a00b731aee10)
+![영화예매](https://github.com/user-attachments/assets/e5261477-9dca-4441-8749-12f25b671a6f)
 - 영화, 극장, 날짜, 시간별로 선택 및 조회가 가능합니다.
 - 예매 다시하기 버튼을 사용하여 선택 초기화를 할 수 있습니다. 
 
   
 ### 좌석 선택
-![좌석선택](https://github.com/user-attachments/assets/0dd6dc7e-987a-4570-9318-9be2d71b9bb9)
+![좌석선택](https://github.com/user-attachments/assets/9824ba53-8935-416b-8d4f-5e738f86222f)
 - 영화를 선택하면 좌석선택이 가능합니다.
 - 다시하기 버튼을 사용하여 좌석 선택 초기화를 할 수 있습니다. 
-- 결제 페이지 미구현 
+- (결제 페이지 미구현)
 
 
 ## ✔️ 영화 목록 페이지
-![영화목록](https://github.com/user-attachments/assets/77722f2c-287f-4489-856b-4bad132091f1)
+![영화목록](https://github.com/user-attachments/assets/538cf217-409b-4738-8700-65772ac4a3c6)
 - 무비차트 별로 목록을 출력합니다. (구현 중단)
 
 
