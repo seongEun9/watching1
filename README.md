@@ -1,10 +1,10 @@
 <!-- Heading -->
 
-# CHAIN
+# WaTching
 
 > Spring Boot와 Spring MVC 패턴을 활용해 제작한 영화예매 사이트 WaTching 입니다.<br>
 
-### ✔️ 개발 동기 및 개요
+### ✔️개발 동기 및 개요
 - 개성적이고 깔끔한 영화 사이트를 만들고 싶었다. 
 
 
