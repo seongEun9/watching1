@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
     <title>영화 목록 조회 페이지</title>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/chart.css" rel="stylesheet">
+
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+    <link th:href="@{/css/chart.css}" rel="stylesheet">
+
 
     <!-- 폰트 설정 -->
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}"/>
@@ -20,7 +23,7 @@
 <body>
 <!-- 최상단에 위치한 배경 이미지, 높이 80px -->
 <div class="top-banner">
-    <img alt="가로 광고바" class="d-block w-100" src="img/광고바_가로.jpg">
+    <img alt="가로 광고바" class="d-block w-100" src="/img/광고바_가로.jpg">
 </div>
 
 <!-- 상단 메뉴바 -->
@@ -99,20 +102,19 @@
                             <div class="movie-title3">인사이드아웃2</div>
                             <div class="movie-info3">예매율 27.3% | 99% 추천 | 2024.09.13 개봉 | D-10</div>
                             <div class="movie-buttons3">
-                                <button class="btn-booking3"onclick="location.href='/영화예매.html'" type="button">예매하기</button>
+                                <button class="btn-booking3" onclick="location.href='/영화예매.html'" type="button">예매하기</button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <!-- 영화 목록 반복 -->
-                <div class="col-md-3" th:each="movie, stat : ${movies}">
+                <div class="col-md-3" th:each="movie : ${movies}">
                     <div class="movie-item3">
                         <!-- 영화 순위 -->
-                        <div class="movie-rank3" th:text="'No.' + (${stat.index} + 1)"></div>
+                        <div class="movie-rank3" th:text="'No.'"></div>
 
                         <!-- 영화 포스터 -->
-                        <img th:src="@{${movie.poster}}" th:alt="'Movie ' + (${stat.index} + 1)"
-                             th:onclick="'location.href=\'/movie/detail/' + ${movie.id} + '\'">
+                        <img th:src="@{${movie.poster}}" alt="">
 
                         <div class="movie-details3">
                             <!-- 영화 제목 -->
@@ -120,13 +122,13 @@
 
                             <!-- 영화 정보 -->
                             <div class="movie-info3"
-                                 th:text="${'예매율 ' + movie.bookingRate + '% | ' + movie.recommendRate + '% 추천 | ' + movie.releaseDate + ' 개봉 | ' + movie.dDay}">
+                                 th:text="${'예매율 ' + '% | '  + '% 추천 | ' + movie.releaseDate + ' 개봉 | ' + movie.releaseDate}">
                                 영화 정보
                             </div>
 
                             <!-- 예매 버튼 -->
                             <div class="movie-buttons3">
-                                <button class="btn-booking3" th:onclick="'location.href=\'/movie/booking/' + ${movie.id} + '\''" type="button">예매하기</button>
+                                <button class="btn-booking3" type="button">예매하기</button>
                             </div>
                         </div>
                     </div>
