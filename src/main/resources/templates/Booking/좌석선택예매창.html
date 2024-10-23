@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>좌석 선택</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link href="../static/css/chart.css" rel="stylesheet">
+
+    <!-- 폰트 설정 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i" rel="stylesheet"/>
+</head>
+<body>
+
+<!-- 최상단에 위치한 배경 이미지, 높이 80px -->
+<div class="top-banner">
+    <img alt="가로 광고바"  class="d-block w-100" src="../static/img/광고바_가로.jpg">
+</div>
+
+<!-- 상단 메뉴바 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand"  href="/">WaTching</a>
+        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <!-- 드롭다운 메뉴 추가 -->
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="moviesDropdown" role="button">
+                        영화
+                    </a>
+                    <ul aria-labelledby="moviesDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 상영작</a></li>
+                        <li><a class="dropdown-item" href="#">개봉 예정작</a></li>
+                        <li><a class="dropdown-item" href="#">특별 상영작</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="theatersDropdown" role="button">
+                        극장
+                    </a>
+                    <ul aria-labelledby="theatersDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">전체 극장</a></li>
+                        <li><a class="dropdown-item" href="#">특별관</a></li>
+                        <li><a class="dropdown-item" href="#">상영 시간표</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="reservationDropdown" role="button">
+                        예매
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="eventDropdown" role="button">
+                        이벤트
+                    </a>
+                    <ul aria-labelledby="eventDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 진행 이벤트</a></li>
+                        <li><a class="dropdown-item" href="#">이벤트 응모/당첨자</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="search.html">검색</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+                <li class="nav-item"><a class="nav-link" href="mypage.html">마이페이지</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- 좌석 선택 상단 정보 및 다시하기 버튼 -->
+<div class="all-mm200">
+<div class="container4">
+    <!-- 왼쪽 사이드바 광고 영역 -->
+    <div class="sidebar4">
+        <div class="ad4">
+            <img src="../static/img/세로이벤트1.jpg" alt="Ad" class="ad-img4">
+        </div>
+    </div>
+    <div class="main4">
+    <h2 class="text-center">인원 / 좌석</h2>
+    <div class="row justify-content-between">
+        <div class="col-md-8">
+            <div class="d-flex justify-content-around align-items-center">
+                <div>일반 <span class="badge bg-secondary">0</span></div>
+                <div>청소년 <span class="badge bg-secondary">0</span></div>
+                <div>경로 <span class="badge bg-secondary">0</span></div>
+                <div>우대 <span class="badge bg-secondary">0</span></div>
+            </div>
+        </div>
+        <div class="col-md-4 text-end">
+            <button class="btn btn-outline-secondary" onclick="resetSeats()">다시하기</button>
+        </div>
+    </div>
+
+
+<!-- 좌석 배치 -->
+<div class="container mt-3">
+    <div class="screen text-center mb-3">
+        <strong>SCREEN</strong>
+    </div>
+    <div class="seat-selection d-flex justify-content-center">
+        <!-- 좌석 선택 표 -->
+        <table class="seat-table">
+            <tbody>
+            <tr>
+                <td class="disabled"></td>
+                <td class="disabled"></td>
+                <td class="available">A3</td>
+                <td class="available">A4</td>
+                <td class="available">A5</td>
+                <td class="available">A6</td>
+                <td class="disabled"></td>
+                <td class="disabled"></td>
+            </tr>
+            <tr>
+                <td class="disabled"></td>
+                <td class="available">B2</td>
+                <td class="available">B3</td>
+                <td class="available">B4</td>
+                <td class="available">B5</td>
+                <td class="available">B6</td>
+                <td class="available">B7</td>
+                <td class="disabled"></td>
+            </tr>
+            <tr>
+                <td class="available">C1</td>
+                <td class="available">C2</td>
+                <td class="available">C3</td>
+                <td class="available">C4</td>
+                <td class="available">C5</td>
+                <td class="available">C6</td>
+                <td class="available">C7</td>
+                <td class="available">C8</td>
+            </tr>
+            <tr>
+                <td class="available">D1</td>
+                <td class="available">D2</td>
+                <td class="available">D3</td>
+                <td class="available">D4</td>
+                <td class="available">D5</td>
+                <td class="available">D6</td>
+                <td class="available">D7</td>
+                <td class="available">D8</td>
+            </tr>
+            <!-- 더 많은 좌석 행을 추가할 수 있음 -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- 좌석 선택 하단 정보 및 버튼 -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-4">
+            <button class="btn btn-secondary mb-2" onclick="window.location.href='영화예매.html'">영화선택</button>
+        </div>
+        <div class="col-md-8">
+            <div class="movie-info text-end">
+                <p>영화: <strong>베테랑2</strong></p>
+                <p>극장: <strong>CGV 신촌아트레온</strong></p>
+                <p>일시: <strong>2024.09.13 (금) 19:00 ~ 21:08</strong></p>
+                <p>상영관: <strong>2관 3층</strong></p>
+                <p>인원: <strong>일반 2명</strong></p>
+                <p>좌석: <strong>D16, D17</strong></p>
+                <p>총 금액: <strong>30,000원</strong></p>
+                <button class="btn btn-danger" onclick="window.location.href='영화결제.html'">결제선택</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+    <!-- 오른쪽 사이드바 광고 영역 -->
+    <div class="sidebar4">
+        <div class="ad4">
+            <img src="../static/img/세로이벤트1.jpg" alt="Ad" class="ad-img4">
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+<script>
+    // 좌석 선택 스크립트
+    const seats = document.querySelectorAll('.seat-selection td');
+
+    seats.forEach(seat => {
+        seat.addEventListener('click', () => {
+            if (!seat.classList.contains('selected') && seat.classList.contains('available')) {
+                seat.classList.add('selected');
+            } else {
+                seat.classList.remove('selected');
+            }
+        });
+    });
+
+    // 좌석 선택 초기화 함수
+    function resetSeats() {
+        seats.forEach(seat => {
+            seat.classList.remove('selected');
+        });
+    }
+</script>
+<style>
+    .seat-table {
+        border-spacing: 3px;
+    }
+
+    .seat-table td {
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+
+    .seat-table .available {
+        background-color: #ddd;
+        border-radius: 5px;
+    }
+
+    .seat-table .selected {
+        background-color: #d9534f;
+        color: #fff;
+        border-radius: 5px;
+    }
+
+    .seat-table .disabled {
+        background-color: #f1f1f1;
+        cursor: not-allowed;
+    }
+
+    .screen {
+        background-color: #f1f1f1;
+        padding: 10px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+
+    .movie-info {
+        font-size: 14px;
+    }
+
+    .btn-danger {
+        background-color: #d9534f;
+    }
+
+    .btn-secondary {
+        background-color: #6c757d;
+    }
+
+    .btn-outline-secondary {
+        border-color: #6c757d;
+        color: #6c757d;
+    }
+
+    .btn-outline-secondary:hover {
+        background-color: #6c757d;
+        color: #fff;
+    }
+</style>
+
+
+<footer class="footer">
+    <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
+    <p>고객센터: 1544-1122</p>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

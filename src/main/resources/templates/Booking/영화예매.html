@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>예매 페이지</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="../static/css/main.css" rel="stylesheet">
+    <link href="../static/css/chart.css" rel="stylesheet">
+
+    <!-- 폰트 설정 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i"
+            rel="stylesheet"
+    />
+</head>
+<body>
+
+<!-- 최상단에 위치한 배경 이미지, 높이 80px -->
+<div class="top-banner">
+    <img alt="가로 광고바"  class="d-block w-100" src="../static/img/광고바_가로.jpg">
+</div>
+
+<!-- 상단 메뉴바 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand"  href="/">WaTching</a>
+        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <!-- 드롭다운 메뉴 추가 -->
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="moviesDropdown" role="button">
+                        영화
+                    </a>
+                    <ul aria-labelledby="moviesDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 상영작</a></li>
+                        <li><a class="dropdown-item" href="#">개봉 예정작</a></li>
+                        <li><a class="dropdown-item" href="#">특별 상영작</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="theatersDropdown" role="button">
+                        극장
+                    </a>
+                    <ul aria-labelledby="theatersDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">전체 극장</a></li>
+                        <li><a class="dropdown-item" href="#">특별관</a></li>
+                        <li><a class="dropdown-item" href="#">상영 시간표</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="reservationDropdown" role="button">
+                        예매
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="eventDropdown" role="button">
+                        이벤트
+                    </a>
+                    <ul aria-labelledby="eventDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 진행 이벤트</a></li>
+                        <li><a class="dropdown-item" href="#">이벤트 응모/당첨자</a></li>
+                    </ul>
+                </li>
+                <!-- 더 많은 메뉴 아이템 추가 -->
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="search.html">검색</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+                <li class="nav-item"><a class="nav-link" href="mypage.html">마이페이지</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- 여기까지는 고정 -->
+
+<div class="all-mm200">
+<div class="container4">
+    <!-- 왼쪽 사이드바 광고 영역 -->
+    <div class="sidebar4">
+        <div class="ad4">
+            <img src="../static/img/세로이벤트1.jpg" alt="Ad" class="ad-img4">
+        </div>
+    </div>
+
+    <div class="main4">
+        <!-- 상단 버튼 메뉴 영역 -->
+        <div class="header4">
+            <button class="btn btn-outline-secondary" onclick="refreshPage()">예매 다시하기</button>
+        </div>
+
+        <!-- 영화, 극장, 날짜, 시간 선택 영역 -->
+        <div class="content4">
+            <!-- 영화 목록 선택 영역 -->
+            <div class="movie-section4 section4">
+                <div class="section-title4">영화</div>
+                <div class="movie-list4">
+                    <div class="movie4" onclick="selectMovie('안녕, 할부지')">안녕, 할부지</div>
+                    <div class="movie4" onclick="selectMovie('비틀쥬스 비틀쥬스')">비틀쥬스 비틀쥬스</div>
+                    <div class="movie4" onclick="selectMovie('레드불 T1 다큐멘터리')">레드불 T1 다큐멘터리</div>
+                    <div class="movie4" onclick="selectMovie('이미지너리')">이미지너리</div>
+                    <div class="movie4" onclick="selectMovie('트위스트')">트위스트</div>
+                    <div class="movie4" onclick="selectMovie('소녀 시절의 너')">소녀 시절의 너</div>
+                </div>
+            </div>
+
+            <!-- 극장 목록 선택 영역 -->
+            <div class="theater-section4 section4">
+                <div class="section-title4">극장</div>
+                <ul class="theater-list4">
+                    <li onclick="selectTheater('서울')">서울</li>
+                    <li onclick="selectTheater('대구')">대구</li>
+                    <li onclick="selectTheater('경기')">경기</li>
+                    <li onclick="selectTheater('인천')">인천</li>
+                    <li onclick="selectTheater('대전/충청')">대전/충청</li>
+                    <li onclick="selectTheater('부산/울산')">부산/울산</li>
+                </ul>
+            </div>
+
+            <!-- 날짜 목록 선택 영역 -->
+            <div class="date-section4 section4">
+                <div class="section-title4">날짜</div>
+                <div class="date-title4">2024년 9월</div>
+                <ul class="date-list4">
+                    <li onclick="selectDate('2024-09-03')">화 3</li>
+                    <li onclick="selectDate('2024-09-04')">수 4</li>
+                    <li onclick="selectDate('2024-09-05')">목 5</li>
+                    <li onclick="selectDate('2024-09-06')">금 6</li>
+                    <li onclick="selectDate('2024-09-07')">토 7</li>
+                    <li onclick="selectDate('2024-09-08')">일 8</li>
+                </ul>
+            </div>
+
+            <!-- 시간 선택 영역 -->
+            <div class="time-section4 section4">
+                <div class="section-title4">시간</div>
+                <div id="timeSection4">
+                    <!-- 선택한 영화, 극장, 날짜에 따라 시간이 동적으로 표시됩니다 -->
+                </div>
+            </div>
+        </div>
+
+        <!-- 선택된 정보 표시 및 좌석 선택 버튼 -->
+        <div class="footer4">
+            <div class="selected-movie-info4" id="selectedMovieInfo4">
+                <p>영화, 극장, 날짜, 시간을 선택해주세요.</p>
+            </div>
+            <button class="btn btn-danger seat-selection4" id="seatSelectionButton4" disabled>좌석선택</button>
+        </div>
+    </div>
+
+    <!-- 오른쪽 사이드바 광고 영역 -->
+    <div class="sidebar4">
+        <div class="ad4">
+            <img src="../static/img/세로이벤트1.jpg" alt="Ad" class="ad-img4">
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!-- JavaScript 함수 영역 -->
+<script>
+    // 선택된 항목을 강조하는 CSS 클래스
+    let selectedMovie = '';  // 선택된 영화를 저장하는 변수
+    let selectedTheater = '';  // 선택된 극장을 저장하는 변수
+    let selectedDate = '';  // 선택된 날짜를 저장하는 변수
+    let selectedTime = '';  // 선택된 시간을 저장하는 변수
+
+    // 모든 선택된 상태를 초기화하는 함수
+    function clearSelectedState(category) {
+        const selectedElements = document.querySelectorAll(`.${category} .selected4`);
+        selectedElements.forEach(element => element.classList.remove('selected4'));
+    }
+
+    // 영화를 선택했을 때 호출되는 함수
+    function selectMovie(movie) {
+        clearSelectedState('movie-section4');
+        selectedMovie = movie;
+        event.target.classList.add('selected4');  // 선택된 영화에 강조 표시
+        updateSelectedInfo();  // 선택된 정보 업데이트
+        updateAvailableTimes();  // 가능한 시간 업데이트
+    }
+
+    // 극장을 선택했을 때 호출되는 함수
+    function selectTheater(theater) {
+        clearSelectedState('theater-section4');
+        selectedTheater = theater;
+        event.target.classList.add('selected4');  // 선택된 극장에 강조 표시
+        updateSelectedInfo();  // 선택된 정보 업데이트
+        updateAvailableTimes();  // 가능한 시간 업데이트
+    }
+
+    // 날짜를 선택했을 때 호출되는 함수
+    function selectDate(date) {
+        clearSelectedState('date-section4');
+        selectedDate = date;
+        event.target.classList.add('selected4');  // 선택된 날짜에 강조 표시
+        updateSelectedInfo();  // 선택된 정보 업데이트
+        updateAvailableTimes();  // 가능한 시간 업데이트
+    }
+
+    // 선택한 영화, 극장, 날짜에 따른 가능한 시간을 업데이트하는 함수
+    function updateAvailableTimes() {
+        const timeSection = document.getElementById('timeSection4');
+        timeSection.innerHTML = '';
+
+        if (selectedMovie && selectedTheater && selectedDate) {
+            const times = ['12:00', '15:00', '18:00', '21:00'];  // 예시 시간 목록
+            times.forEach(time => {
+                const timeSlot = document.createElement('div');
+                timeSlot.classList.add('time-slot4');
+                timeSlot.innerHTML = `<span>${time}</span> <span>300석</span>`;
+                timeSlot.onclick = () => selectTime(time);
+                timeSection.appendChild(timeSlot);
+            });
+        }
+    }
+
+    // 시간을 선택했을 때 호출되는 함수
+    function selectTime(time) {
+        clearSelectedState('time-section4');
+        selectedTime = time;
+        event.target.classList.add('selected4');  // 선택된 시간에 강조 표시
+        const seatSelectionButton = document.getElementById('seatSelectionButton4');
+        const infoElement = document.getElementById('selectedMovieInfo4');
+
+        infoElement.innerHTML += `<p>${time}</p>`;
+        seatSelectionButton.disabled = false;  // 좌석 선택 버튼 활성화
+
+        seatSelectionButton.onclick = () => {
+            alert(`영화: ${selectedMovie}\n극장: ${selectedTheater}\n날짜: ${selectedDate}\n시간: ${time}`);
+            // 여기에서 좌석 선택 페이지로 이동하는 코드를 추가할 수 있습니다
+        };
+    }
+
+    // 선택된 정보를 화면에 업데이트하는 함수
+    function updateSelectedInfo() {
+        const infoElement = document.getElementById('selectedMovieInfo4');
+        if (selectedMovie && selectedTheater && selectedDate) {
+            infoElement.innerHTML = `<p>${selectedMovie}</p><p>${selectedTheater}</p><p>${selectedDate}</p>`;
+        } else {
+            infoElement.innerHTML = `<p>영화, 극장, 날짜, 시간을 선택해주세요.</p>`;
+        }
+    }
+
+</script>
+
+<footer class="footer">
+    <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
+    <p>고객센터: 1544-1122</p>
+
+
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>
