@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>영화 목록 조회 페이지</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/chart.css" rel="stylesheet">
+
+    <!-- 폰트 설정 -->
+    <link rel="preconnect" th:href="@{https://fonts.gstatic.com}"/>
+    <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i"
+            rel="stylesheet"
+    />
+</head>
+<body>
+<!-- 최상단에 위치한 배경 이미지, 높이 80px -->
+<div class="top-banner">
+    <img alt="가로 광고바" class="d-block w-100" src="img/광고바_가로.jpg">
+</div>
+
+<!-- 상단 메뉴바 -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">WaTching</a>
+        <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+                <!-- 드롭다운 메뉴 추가 -->
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="moviesDropdown" role="button">
+                        영화
+                    </a>
+                    <ul aria-labelledby="moviesDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 상영작</a></li>
+                        <li><a class="dropdown-item" href="#">개봉 예정작</a></li>
+                        <li><a class="dropdown-item" href="#">특별 상영작</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="theatersDropdown" role="button">
+                        극장
+                    </a>
+                    <ul aria-labelledby="theatersDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">전체 극장</a></li>
+                        <li><a class="dropdown-item" href="#">특별관</a></li>
+                        <li><a class="dropdown-item" href="#">상영 시간표</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="reservationDropdown" role="button">
+                        예매
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                       id="eventDropdown" role="button">
+                        이벤트
+                    </a>
+                    <ul aria-labelledby="eventDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">현재 진행 이벤트</a></li>
+                        <li><a class="dropdown-item" href="#">이벤트 응모/당첨자</a></li>
+                    </ul>
+                </li>
+                <!-- 더 많은 메뉴 아이템 추가 -->
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="search.html">검색</a></li>
+                <li class="nav-item"><a class="nav-link" href="login.html">로그인</a></li>
+                <li class="nav-item"><a class="nav-link" href="mypage.html">마이페이지</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- 여기까지는 고정 -->
+
+
+
+<!-- 영화 목록 -->
+<div class="container my-4">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="movie-item3">
+                        <div class="movie-rank3">No.1</div>
+                        <img src="/img/인사이드아웃2.jpg" alt="Movie 1" onclick="location.href='/영화상세.html'">
+                        <div class="movie-details3">
+                            <div class="movie-title3">인사이드아웃2</div>
+                            <div class="movie-info3">예매율 27.3% | 99% 추천 | 2024.09.13 개봉 | D-10</div>
+                            <div class="movie-buttons3">
+                                <button class="btn-booking3"onclick="location.href='/영화예매.html'" type="button">예매하기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 영화 목록 반복 -->
+                <div class="col-md-3" th:each="movie, stat : ${movies}">
+                    <div class="movie-item3">
+                        <!-- 영화 순위 -->
+                        <div class="movie-rank3" th:text="'No.' + (${stat.index} + 1)"></div>
+
+                        <!-- 영화 포스터 -->
+                        <img th:src="@{${movie.poster}}" th:alt="'Movie ' + (${stat.index} + 1)"
+                             th:onclick="'location.href=\'/movie/detail/' + ${movie.id} + '\'">
+
+                        <div class="movie-details3">
+                            <!-- 영화 제목 -->
+                            <div class="movie-title3" th:text="${movie.title}">영화 제목</div>
+
+                            <!-- 영화 정보 -->
+                            <div class="movie-info3"
+                                 th:text="${'예매율 ' + movie.bookingRate + '% | ' + movie.recommendRate + '% 추천 | ' + movie.releaseDate + ' 개봉 | ' + movie.dDay}">
+                                영화 정보
+                            </div>
+
+                            <!-- 예매 버튼 -->
+                            <div class="movie-buttons3">
+                                <button class="btn-booking3" th:onclick="'location.href=\'/movie/booking/' + ${movie.id} + '\''" type="button">예매하기</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 추가 영화 항목들 끝 -->
+
+            </div>
+        </div>
+
+        <!-- 오른쪽 사이드바 광고 -->
+        <div class="col-md-2">
+            <div class="right-sidebar-ad3">
+                <img src="/img/세로이벤트1.jpg" alt="Ad1" class="img-fluid">
+            </div>
+            <div class="right-sidebar-ad3 mt-4">
+                <img src="/img/세로이벤트1.jpg" alt="Ad2" class="img-fluid">
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<footer class="footer">
+    <small><a href="#">이용약관</a> • <a href="#">개인정보처리방침</a></small>
+    <p>고객센터: 1544-1122</p>
+
+    <div class="fixed-booking-button">
+        <button class="booking-button">예매하기</button>
+        <div class="scroll-up">
+            <i class="fas fa-arrow-up"></i>
+        </div>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/js/main.js"></script>
+<script src="/js/chart.js"></script>
+
+</body>
+</html>
