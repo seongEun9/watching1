@@ -1,25 +1,19 @@
 package org.zerock.watching.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.zerock.watching.model.Movie;
-import org.zerock.watching.repository.MovieRepository;
+import org.zerock.watching.dto.MovieDTO;
 
 import java.util.List;
 
-@Service
-public class MovieService {
-
-    @Autowired
-    private MovieRepository movieRepository;
+public interface MovieService {
 
     // 영화 전체 목록 조회
-    public List<Movie> getAllMovies() {
-        return movieRepository.findAll();
-    }
-
+    List<MovieDTO> getAllMovies();
     // 영화 개별 상세 조회
+    MovieDTO getMovieById(Long id);
     // 영화 정보 등록
+    void registerMovie(MovieDTO movieDTO);
+    // 영화 정보 수정
+    void modifyMovie(Long id, MovieDTO movieDTO);
     // 영화 정보 삭제
-
+    void deleteMovie(Long id);
 }
