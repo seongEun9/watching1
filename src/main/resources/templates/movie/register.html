@@ -20,6 +20,7 @@
     />
 </head>
 <body>
+
 <!-- 최상단에 위치한 배경 이미지, 높이 80px -->
 <div class="top-banner">
     <img alt="가로 광고바" class="d-block w-100" src="/img/광고바_가로.jpg">
@@ -37,11 +38,12 @@
             <ul class="navbar-nav mx-auto">
                 <!-- 드롭다운 메뉴 추가 -->
                 <li class="nav-item dropdown">
-                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"
                        id="moviesDropdown" role="button">
                         영화
                     </a>
                     <ul aria-labelledby="moviesDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/movie/list">전체 영화 목록</a></li>
                         <li><a class="dropdown-item" href="#">현재 상영작</a></li>
                         <li><a class="dropdown-item" href="#">개봉 예정작</a></li>
                         <li><a class="dropdown-item" href="#">특별 상영작</a></li>
@@ -86,76 +88,80 @@
 </nav>
 <!-- 여기까지는 고정 -->
 
+
 <!-- Main Content -->
 <div class="container my-4">
-    <div class="row">
-        <div class="col-md-auto">
 
-            <!--영화 정보 등록 폼 -->
+    <h2 class="text-center mb-4">영화 정보 등록</h2>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
             <form th:action="@{/movie/register}" method="post" enctype="multipart/form-data">
-                <label for="title">제목 :</label>
-                <div>
-                    <input type="text" id="title" name="title" required/>
+                <div class="mb-3">
+                    <label for="title" class="form-label">제목</label>
+                    <input type="text" class="form-control" id="title" name="title" required/>
                 </div>
 
-                <label for="description">설명 :</label>
-                <div>
-                    <textarea id="description" name="description" required></textarea>
+                <div class="mb-3">
+                    <label for="description" class="form-label">설명</label>
+                    <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
                 </div>
 
-                <label for="genre">장르 :</label>
-                <div>
-                    <input type="text" id="genre" name="genre" required/><br/>
+                <div class="mb-3">
+                    <label for="genre" class="form-label">장르</label>
+                    <input type="text" class="form-control" id="genre" name="genre" required/>
                 </div>
 
-                <label for="releaseDate">개봉일 :</label>
-                <div>
-                    <input type="date" id="releaseDate" name="releaseDate" required/>
+                <div class="mb-3">
+                    <label for="releaseDate" class="form-label">개봉일</label>
+                    <input type="date" class="form-control" id="releaseDate" name="releaseDate" required/>
                 </div>
 
-                <label for="director">감독 :</label>
-                <div>
-                    <input type="text" id="director" name="actors" required/>
+                <div class="mb-3">
+                    <label for="director" class="form-label">감독</label>
+                    <input type="text" class="form-control" id="director" name="director" required/>
                 </div>
 
-                <label for="actors">출연자 :</label>
-                <div>
-                    <input type="text" id="actors" name="actors" required/>
+                <div class="mb-3">
+                    <label for="actors" class="form-label">출연자</label>
+                    <input type="text" class="form-control" id="actors" name="actors" required/>
                 </div>
 
-                <label for="rating">관람가 :</label>
-                <div>
-                    <input type="text" id="rating" name="rating" required/>
+                <div class="mb-3">
+                    <label for="rating" class="form-label">관람가</label>
+                    <input type="text" class="form-control" id="rating" name="rating" required/>
                 </div>
 
-                <label for="runtime">러닝타임 :</label>
-                <div>
-                    <input type="text" id="runtime" name="runtime" required/>
+                <div class="mb-3">
+                    <label for="runtime" class="form-label">러닝타임 (분)</label>
+                    <input type="text" class="form-control" id="runtime" name="runtime" required/>
                 </div>
 
-                <label>영화상태</label>
-                <div>
-                    <input type="radio" id="status1" name="status" value="상영중" required>
-                    <label for="status1">상영 중</label>
-
-                    <input type="radio" id="status2" name="status" value="상영예정" required>
-                    <label for="status2">상영 예정</label>
-
-                    <input type="radio" id="status3" name="status" value="상영종료" required>
-                    <label for="status3">상영 종료</label>
+                <div class="mb-3">
+                    <label class="form-label">영화 상태</label>
+                    <div class="form-check">
+                        <input type="radio" id="status1" name="status" value="상영 중" class="form-check-input" required>
+                        <label for="status1" class="form-check-label">상영 중</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="status2" name="status" value="상영 예정" class="form-check-input" required>
+                        <label for="status2" class="form-check-label">상영 예정</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="status3" name="status" value="상영 종료" class="form-check-input" required>
+                        <label for="status3" class="form-check-label">상영 종료</label>
+                    </div>
                 </div>
 
-
-                <label for="posterFile">포스터 :</label>
-                <div>
-                    <input type="file" id="posterFile" name="posterFile" accept="image/*" required/><br/>
-                </div>
-                <!-- 이미지 파일이 posterFile 저장, 파일 경로는 poster에... -->
-
-                <div>
-                    <button type="submit">영화 등록</button>
+                <div class="mb-3">
+                    <label for="posterFile" class="form-label">포스터</label>
+                    <input type="file" class="form-control" id="posterFile" name="posterFile" accept="image/*"
+                           required/>
                 </div>
 
+                <div class="d-grid">
+                    <button type="submit" class="btn btn-outline-danger">영화 등록</button>
+                </div>
             </form>
         </div>
     </div>

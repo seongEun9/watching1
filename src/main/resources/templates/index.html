@@ -7,8 +7,10 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <link href="css/main.css" rel="stylesheet">
-    <link href="css/chart.css" rel="stylesheet">
+
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+    <link th:href="@{/css/chart.css}" rel="stylesheet">
+
 
     <!-- 폰트 설정 -->
     <link rel="preconnect" th:href="@{https://fonts.gstatic.com}"/>
@@ -36,11 +38,11 @@
             <ul class="navbar-nav mx-auto">
                 <!-- 드롭다운 메뉴 추가 -->
                 <li class="nav-item dropdown">
-                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#"
-                       id="moviesDropdown" role="button">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" id="moviesDropdown" role="button">
                         영화
                     </a>
                     <ul aria-labelledby="moviesDropdown" class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/movie/list">전체 영화 목록</a></li>
                         <li><a class="dropdown-item" href="#">현재 상영작</a></li>
                         <li><a class="dropdown-item" href="#">개봉 예정작</a></li>
                         <li><a class="dropdown-item" href="#">특별 상영작</a></li>

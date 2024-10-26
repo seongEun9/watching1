@@ -27,6 +27,14 @@ public class MovieController {
         return "movie/list";
     }
 
+    // 영화 개별 조회 페이지
+    @GetMapping("/detail/{id}")
+    public String getMovie(@PathVariable Long id, Model model) {
+        MovieDTO movie = movieService.getMovieById(id);
+        model.addAttribute("movie", movie);
+        return "movie/detail";
+    }
+
     // 영화 등록 페이지 표시
     @GetMapping("/register")
     public String showRegisterPage() {
