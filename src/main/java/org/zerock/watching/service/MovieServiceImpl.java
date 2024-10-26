@@ -7,7 +7,6 @@ import org.springframework.web.multipart.MultipartFile;
 import org.zerock.watching.dto.MovieDTO;
 import org.zerock.watching.model.Movie;
 import org.zerock.watching.repository.MovieRepository;
-import org.zerock.watching.service.MovieService;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -42,6 +41,7 @@ public class MovieServiceImpl implements MovieService {
         return modelMapper.map(movie, MovieDTO.class); // 엔티티 -> DTO 변환
     }
 
+
     // 영화 등록
     @Override
     public void registerMovie(MovieDTO movieDTO) {
@@ -61,18 +61,20 @@ public class MovieServiceImpl implements MovieService {
         movieRepository.save(movie); // 수정된 영화 저장
     }
 
+
     // 영화 삭제
     @Override
     public void deleteMovie(Long id) {
         movieRepository.deleteById(id);
     }
 
+
     // 파일 업로드 처리
     private void processFile(MultipartFile file, Movie movie) {
         if (file != null && !file.isEmpty()) {
             try {
                 String originalFileName = file.getOriginalFilename();
-                String fileName = System.currentTimeMillis() + "_" + originalFileName;
+                String fileName = originalFileName;
                 Path filePath = Paths.get(UPLOAD_DIR + fileName);
                 Files.write(filePath, file.getBytes());
                 movie.setPoster("img/" + fileName); // 저장 경로 설정
@@ -81,4 +83,5 @@ public class MovieServiceImpl implements MovieService {
             }
         }
     }
+
 }

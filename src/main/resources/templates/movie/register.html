@@ -113,31 +113,44 @@
                     <input type="date" id="releaseDate" name="releaseDate" required/>
                 </div>
 
-                <label for="genre">출연자 :</label>
+                <label for="director">감독 :</label>
+                <div>
+                    <input type="text" id="director" name="actors" required/>
+                </div>
+
+                <label for="actors">출연자 :</label>
                 <div>
                     <input type="text" id="actors" name="actors" required/>
                 </div>
 
-                <label for="genre">관람가 :</label>
+                <label for="rating">관람가 :</label>
                 <div>
                     <input type="text" id="rating" name="rating" required/>
                 </div>
 
-                <label for="genre">러닝타임 :</label>
+                <label for="runtime">러닝타임 :</label>
                 <div>
                     <input type="text" id="runtime" name="runtime" required/>
                 </div>
 
-                <label for="genre">영화상태</label>
+                <label>영화상태</label>
                 <div>
-                    <input type="radio" id="status" name="status" required/>
+                    <input type="radio" id="status1" name="status" value="상영중" required>
+                    <label for="status1">상영 중</label>
+
+                    <input type="radio" id="status2" name="status" value="상영예정" required>
+                    <label for="status2">상영 예정</label>
+
+                    <input type="radio" id="status3" name="status" value="상영종료" required>
+                    <label for="status3">상영 종료</label>
                 </div>
 
 
-                <label for="poster">포스터 :</label>
+                <label for="posterFile">포스터 :</label>
                 <div>
-                    <input type="file" id="poster" name="poster" accept="image/*" required/><br/>
+                    <input type="file" id="posterFile" name="posterFile" accept="image/*" required/><br/>
                 </div>
+                <!-- 이미지 파일이 posterFile 저장, 파일 경로는 poster에... -->
 
                 <div>
                     <button type="submit">영화 등록</button>

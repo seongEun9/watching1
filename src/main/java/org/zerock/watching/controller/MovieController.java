@@ -36,11 +36,12 @@ public class MovieController {
     // 영화 정보 등록
     @PostMapping("/register")
     public String registerMovie(@ModelAttribute MovieDTO movieDTO,
-                                @RequestParam("poster") MultipartFile file) {
+                                @RequestParam("posterFile") MultipartFile file) { // 파일은 posterFile에 저장
         movieDTO.setPosterFile(file); // 파일을 DTO에 설정
-        movieService.registerMovie(movieDTO); // DTO를 사용하여 등록 처리
+        movieService.registerMovie(movieDTO); // DTO를 사용하여 등록
         return "redirect:/movie/list";
     }
+
 
     // 영화 수정 페이지 표시
     @GetMapping("/modify/{id}")
@@ -49,6 +50,7 @@ public class MovieController {
         model.addAttribute("movie", movieDTO); // 모델에 영화 추가
         return "movie/modify"; // 영화 수정 페이지로 이동
     }
+
 
     // 영화 정보 수정
     @PostMapping("/modify/{id}")
@@ -59,6 +61,7 @@ public class MovieController {
         movieService.modifyMovie(id, movieDTO); // 수정 처리
         return "redirect:/movie/list";
     }
+
 
     // 영화 정보 삭제
     @PostMapping("/delete/{id}")
