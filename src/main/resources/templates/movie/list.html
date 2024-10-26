@@ -24,7 +24,7 @@
 
 <!-- 최상단에 위치한 배경 이미지, 높이 80px -->
 <div class="top-banner">
-    <img alt="가로 광고바" class="d-block w-100" src="/img/광고바_가로.jpg">
+    <img alt="가로 광고바"  class="d-block w-100" src="/img/광고바_가로.jpg" onclick="window.location.href='/movie/detail/7'">
 </div>
 
 <!-- 상단 메뉴바 -->
@@ -103,20 +103,6 @@
 
 
             <div class="row">
-                <div class="col-md-3">
-                    <div class="movie-item3">
-                        <div class="movie-rank3">No.1</div>
-                        <img src="/img/인사이드아웃2.jpg" alt="Movie 1" onclick="location.href='/영화상세.html'">
-                        <div class="movie-details3">
-                            <div class="movie-title3">인사이드아웃2</div>
-                            <div class="movie-info3">예매율 27.3% | 99% 추천 | 2024.09.13 개봉 | D-10</div>
-                            <div class="movie-buttons3">
-                                <button class="btn-booking3" onclick="location.href='/영화예매.html'" type="button">예매하기
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <!-- 영화 목록 반복 -->
                 <div class="col-md-3" th:each="movie : ${movies}">
                     <div class="movie-item3">
@@ -133,7 +119,7 @@
 
                             <!-- 영화 정보 -->
                             <div class="movie-info3"
-                                 th:text="${'예매율 ' + '% | '  + '% 추천 | ' + movie.releaseDate + ' 개봉 | ' + movie.releaseDate}">
+                                 th:text="${'예매율 ' + '% | '  + '% 추천 | ' + movie.releaseDate + ' 개봉 | D+11'}">
                                 영화 정보
                             </div>
 

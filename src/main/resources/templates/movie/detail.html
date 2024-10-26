@@ -23,7 +23,7 @@
 
 <!-- 최상단에 위치한 배경 이미지, 높이 80px -->
 <div class="top-banner">
-    <img alt="가로 광고바"  class="d-block w-100" src="/img/광고바_가로.jpg">
+    <img alt="가로 광고바" class="d-block w-100" src="/img/광고바_가로.jpg" onclick="window.location.href='/movie/detail/7'">
 </div>
 
 <!-- 상단 메뉴바 -->
@@ -94,13 +94,20 @@
     <div class="row">
 
         <div>
-            <button class="btn btn-outline-danger" type="button" onclick="window.location.href='/movie/modify/{id}'">영화
-                정보 수정
-            </button>
-            <button class="btn btn-danger" type="button" onclick="window.location.href='/movie/delete/{id}'">영화
-                정보 삭제
-            </button>
+            <!-- 영화 정보 수정 버튼 -->
+            <a th:href="@{'/movie/modify/' + ${movie.id}}" class="btn btn-outline-danger me-2">
+                영화 정보 수정
+            </a>
+
+            <!-- 영화 정보 삭제 버튼 -->
+            <form th:action="@{'/movie/delete/' + ${movie.id}}" method="post" style="display: inline;">
+                <button type="submit" class="btn btn-danger" onclick="return confirm('정말 삭제하시겠습니까?');">
+                    영화 정보 삭제
+                </button>
+            </form>
+
         </div>
+
 
         <div class="col-md-8 mx-auto">
             <div class="movie-info text-center">
@@ -132,21 +139,27 @@
                         <p><strong>감독:</strong> <span th:text="${movie.director}">감독 정보</span></p>
                         <p><strong>배우:</strong> <span th:text="${movie.actors}">배우 목록</span></p>
                         <p><strong>장르:</strong> <span th:text="${movie.genre}">장르</span></p>
-                        <p><strong>기본 정보:</strong> <span th:text="${movie.rating} + '관람가, ' + ${movie.runtime} + '분'">상세 정보</span></p>
+                        <p><strong>기본 정보:</strong> <span th:text="${movie.rating} + '관람가, ' + ${movie.runtime} + '분'">상세 정보</span>
+                        </p>
                         <p><strong>개봉:</strong> <span th:text="${movie.releaseDate}">개봉일</span></p>
                     </div>
                     <div class="buttons-section my-3">
                         <button class="like-button btn btn-outline-danger">♡ 좋아요</button>
-                        <button class="ticket-button btn btn-primary" onclick="window.location.href='/영화예매.html'">예매하기</button>
+                        <button class="ticket-button btn btn-primary" onclick="window.location.href='/영화예매.html'">예매하기
+                        </button>
                     </div>
                 </div>
             </div>
 
             <div class="tabs-section mt-5">
                 <ul class="nav nav-tabs justify-content-center" id="movieTab" role="tablist">
-                    <li class="nav-item" role="presentation"><a class="nav-link"  id="info-tab" data-bs-toggle="tab" href="#info" role="tab">주요 정보</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" id="schedule-tab" data-bs-toggle="tab" href="#schedule" role="tab">상영시간표</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" id="synopsis-tab" data-bs-toggle="tab" href="#synopsis" role="tab">영화 줄거리</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" id="info-tab" data-bs-toggle="tab"
+                                                                href="#info" role="tab">주요 정보</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" id="schedule-tab" data-bs-toggle="tab"
+                                                                href="#schedule" role="tab">상영시간표</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" id="synopsis-tab"
+                                                                data-bs-toggle="tab" href="#synopsis" role="tab">영화
+                        줄거리</a></li>
                 </ul>
             </div>
 
@@ -174,8 +187,10 @@
                 </div>
                 <div class="still-cut-gallery d-flex justify-content-center align-items-center mt-3">
                     <button class="gallery-nav gallery-prev btn btn-outline-secondary btn-sm">❮</button>
-                    <img alt="스틸컷 이미지1" class="stillcut-image mx-3 img-fluid" src="/img/준비중.jpg" style="max-width: 400px;">
-                    <img alt="스틸컷 이미지2" class="stillcut-image mx-3 img-fluid" src="/img/준비중.jpg" style="max-width: 400px;">
+                    <img alt="스틸컷 이미지1" class="stillcut-image mx-3 img-fluid" src="/img/준비중.jpg"
+                         style="max-width: 400px;">
+                    <img alt="스틸컷 이미지2" class="stillcut-image mx-3 img-fluid" src="/img/준비중.jpg"
+                         style="max-width: 400px;">
                     <button class="gallery-nav gallery-next btn btn-outline-secondary btn-sm">❯</button>
                 </div>
             </div>
@@ -218,7 +233,7 @@
                             <img alt="User Avatar" class="avatar" src="/img/커여미 2.jpg">
                             <div class="ms-3">
                                 <p class="username mb-1">park 성은 - <span class="text-muted">20 Hour ago</span></p>
-                                <p>마음이 따뜻해지는 영화에요 ~  ^^</p>
+                                <p>마음이 따뜻해지는 영화에요 ~ ^^</p>
                                 <p>좋아요 : 2</p>
                             </div>
                         </div>
@@ -241,9 +256,6 @@
         </div>
     </div>
 </div>
-
-
-
 
 
 <footer class="footer">
