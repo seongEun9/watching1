@@ -54,21 +54,27 @@ public class MovieController {
     // 영화 수정 페이지 표시
     @GetMapping("/modify/{id}")
     public String showModifyPage(@PathVariable("id") Long id, Model model) {
-        MovieDTO movieDTO = movieService.getMovieById(id); // 영화 DTO 조회
-        model.addAttribute("movie", movieDTO); // 모델에 영화 추가
-        return "movie/modify"; // 영화 수정 페이지로 이동
+        MovieDTO movieDTO = movieService.getMovieById(id); // 기존 데이터 불러오기
+        model.addAttribute("movie", movieDTO);
+        return "movie/modify";
     }
-
 
     // 영화 정보 수정
     @PostMapping("/modify/{id}")
     public String modifyMovie(@PathVariable("id") Long id,
                               @ModelAttribute MovieDTO movieDTO,
-                              @RequestParam("poster") MultipartFile file) {
-        movieDTO.setPosterFile(file); // 파일을 DTO에 설정
+                              @RequestParam("posterFile") MultipartFile file) {
+        // 파일이 비어있지 않을 때만 새 파일 업데이트
+        if (!file.isEmpty()) {
+            movieDTO.setPosterFile(file);
+        } else {
+            // 기존 포스터 파일 경로
+            movieDTO.setPoster(movieService.getMovieById(id).getPoster());
+        }
         movieService.modifyMovie(id, movieDTO); // 수정 처리
-        return "redirect:/movie/list";
+        return "redirect:/movie/detail/" + id; // 수정 완료 후 개별 조회 페이지로 이동
     }
+
 
 
     // 영화 정보 삭제
